@@ -1,5 +1,6 @@
 # Virtual Environment
 venv/
+mods/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
