@@ -41,6 +41,7 @@ class MyWebService:
 			from aioweb_user import User as UM
 			self.install(UM)
 		except Exception as x:
+			print(f"Exception: {str(x):s}")
 			pass
 
 		self._setup_routes()
