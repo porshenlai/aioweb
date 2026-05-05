@@ -6,7 +6,20 @@ from json import load as readJSON
 from aiohttp import web, ClientSession as aSession
 from aiofiles import open as aopen
 
-class MyWebService:
+class FSMask :
+	def __init__ (self, root) :
+		self.Root=root;
+		self.Map={};
+
+	def configure (self, args) :
+		self.Map=args;
+
+	def resolve (self, path) :
+		for k in self.Map :
+			if path.startswith(f'{k}/') : return Path.normpath(Path.join(self.Map[k],path[len(k)+1:]))
+		return Path.normpath(Path.join(self.Root,path))
+
+class MyWebService :
 	@property
 	def MIME (self) :
 		return {
@@ -20,7 +33,7 @@ class MyWebService:
 			"*":"binary/octet-stream"
 		}
 
-	def __init__(self, args):
+	def __init__ (self, args) :
 		self.apipfx = args['apipfx']
 		self.host = args['host']
 		self.port = int(args['port'])
@@ -29,12 +42,19 @@ class MyWebService:
 
 		self.app = web.Application()
 		self.mods = {}
+		self.FSMask = FSMask(self.docs_path);
 		
 		# 3. 初始化時自動建立 docs 目錄
 		if not Path.exists(self.docs_path):
 			makedirs(self.docs_path)
 			with open(Path.join(self.docs_path, "index.html"), "w", encoding="utf-8") as f:
 				f.write("<h1>Web Service is Running!</h1>")
+		try :
+			print("MASK CONFIG is ",Path.join(self.docs_path,".fsmask"))
+			with open(Path.join(self.docs_path,".fsmask"), "r", encoding="utf-8") as f:
+				self.FSMask.configure(readJSON(f))
+		except Exception as x: 
+			print("Exception: ",x);
 
 		# 安裝模組
 		try :
@@ -54,7 +74,7 @@ class MyWebService:
 			# HTTPS {'crt':'server.crt', 'key':'server.key'}
 			self.config_https(args['crt'], args['key'])
 
-	def install(self, Class):
+	def install (self, Class) :
 		# 初始化模組實例，傳入 mods 路徑供資料庫儲存
 		mod = Class(self.mods_path)
 		class_name = Class.__name__
@@ -71,19 +91,19 @@ class MyWebService:
 		
 		self.mods[class_name] = mod
 
-	def _setup_routes(self):
+	def _setup_routes (self) :
 		self.app.router.add_post(f"{self.apipfx}echo", self.api_echo)
 		self.app.router.add_post(f"{self.apipfx}proxy", self.api_proxy)
 		self.app.router.add_get("/{tail:.*}", self.handle_static)
 
-	async def api_echo(self, request):
+	async def api_echo (self, request) :
 		try:
 			body = await request.read()
 			return web.Response(body=body, content_type=request.content_type)
 		except Exception as e:
 			return web.json_response({"error": str(e)}, status=400)
 
-	async def api_proxy(self, request):
+	async def api_proxy (self, request) :
 		try:
 			data = await request.json()
 			target_url = data.get("url")
@@ -95,7 +115,7 @@ class MyWebService:
 		except Exception as e:
 			return web.json_response({"error": str(e)}, status=500)
 
-	async def _send_file(self, full_path):
+	async def _send_file (self, full_path) :
 		print("[API] Send static: ",full_path);
 		if Path.exists(full_path) and Path.isfile(full_path):
 			try:
@@ -110,14 +130,16 @@ class MyWebService:
 				print("Exception:",X)
 		return web.Response(text="404: Not Found", status=404)
 
-	async def handle_static(self, request):
+	async def handle_static (self, request) :
 		rel_path = request.match_info['tail']
-		full_path = Path.normpath(Path.join(self.docs_path, rel_path))
+		if rel_path and Path.basename(rel_path)[0] == '.' :
+			return web.Response(text="404: Not Found", status=404)
+		full_path = self.FSMask.resolve(rel_path);
 		if Path.isdir(full_path):
 			full_path = Path.join(full_path, "index.html")
 		return await self._send_file(full_path)
 
-	def config_cors(self, allow='*'):
+	def config_cors (self, allow='*') :
 		"""啟用 CORS 支援 (簡易版)"""
 		try:
 			from aiohttp_cors import setup, ResourceOptions
@@ -134,7 +156,7 @@ class MyWebService:
 		except ImportError:
 			print("[Warning] aiohttp_cors not installed.")
 
-	def config_https(self, certfile, keyfile):
+	def config_https (self, certfile, keyfile) :
 		from ssl import create_default_context, Purpose
 		"""啟用 SSL 支援"""
 		ssl_context = create_default_context(Purpose.CLIENT_AUTH)
@@ -142,7 +164,7 @@ class MyWebService:
 		self._ssl_context = ssl_context
 		print("[System] HTTPS/SSL enabled.")
 
-	def play(self):
+	def play (self) :
 		"""啟動服務"""
 		print(f"[System] Serving at http://{self.host}:{self.port}")
 		ssl_ctx = getattr(self, '_ssl_context', None)
