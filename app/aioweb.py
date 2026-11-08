@@ -3,8 +3,10 @@
 from sys import argv
 from os import path as Path, makedirs
 from json import load as readJSON
+from datetime import datetime
 from aiohttp import web, ClientSession as aSession
 from aiofiles import open as aopen
+from aiohttp import web
 
 class FSMask :
 	def __init__ (self, root) :
@@ -58,8 +60,10 @@ class MyWebService :
 
 		# 安裝模組
 		try :
-			from aioweb_user import User as UM
-			self.install(UM)
+			from aioweb_user import User as modUM
+			self.install(modUM,[self.mods_path])
+			from aioweb_wks import WKS as modWKS
+			self.install(modWKS,["WKStorage"])
 		except Exception as x:
 			print(f"Exception: {str(x):s}")
 			pass
@@ -74,9 +78,9 @@ class MyWebService :
 			# HTTPS {'crt':'server.crt', 'key':'server.key'}
 			self.config_https(args['crt'], args['key'])
 
-	def install (self, Class) :
+	def install (self, Class, Args) :
 		# 初始化模組實例，傳入 mods 路徑供資料庫儲存
-		mod = Class(self.mods_path)
+		mod = Class(*Args)
 		class_name = Class.__name__
 		pfx = f"{self.apipfx}{class_name}/"
 		
@@ -168,6 +172,7 @@ class MyWebService :
 		"""啟動服務"""
 		print(f"[System] Serving at http://{self.host}:{self.port}")
 		ssl_ctx = getattr(self, '_ssl_context', None)
+		# host:0.0.0.0, port:8080
 		web.run_app(self.app, host=self.host, port=self.port, ssl_context=ssl_ctx)
 
 # --- 執行範例 ---

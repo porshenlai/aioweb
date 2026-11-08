@@ -2,7 +2,8 @@
 
 ROOT=$(dirname $0)
 VENV=${ROOT}/venv
-PY=${VENV}/bin/python3
+PY=${VENV}/Scripts/python.exe
+PY=${VENV}/bin/python3.14
 
 test -f "${PY}" || {
 	THONNY=/d/apps/thonny/python.exe

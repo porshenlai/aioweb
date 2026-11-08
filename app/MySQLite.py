@@ -14,9 +14,9 @@ class DB:
 	# "INSERT INTO tasks (symbol, year, tid, status) VALUES (?, ?, ?, 'Pending')", (symbol, year, tid)
 	def commit(self, *cmds) :
 		""" 更新資料
-commit("INSERT OR REPLACE INFO 表格 (欄位A,欄位B) VALUES (?,?)",(數值A,數值B))
-commit("DELETE FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B))
-"""
+		commit("INSERT OR REPLACE INFO 表格 (欄位A,欄位B) VALUES (?,?)",(數值A,數值B))
+		commit("DELETE FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B))
+		"""
 		with connect(self.db) as conn:
 			for i in range(0,len(cmds),2) :
 				conn.execute(cmds[i],cmds[i+1])
@@ -25,9 +25,9 @@ commit("DELETE FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B))
 
 	def query(self, *args) :
 		""" 檢索資料
-	row = query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).FOUND
-	list = query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).DICT
-	for row in query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).ROWS :
+		row = query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).FOUND
+		list = query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).DICT
+		for row in query("SELECT 欄位s FROM 表格 WHERE 欄位A=? AND 欄位B=?", (數值A, 數值B)).ROWS :
 		...
 		"""
 		self.cursor = None
