@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import os, json
 from sys import argv
-from os import path as Path, makedirs
-from json import load as readJSON
 from datetime import datetime
+from asyncio import get_running_loop
 from aiohttp import web, ClientSession as aSession
 from aiofiles import open as aopen
 from aiohttp import web
@@ -18,8 +18,8 @@ class FSMask :
 
 	def resolve (self, path) :
 		for k in self.Map :
-			if path.startswith(f'{k}/') : return Path.normpath(Path.join(self.Map[k],path[len(k)+1:]))
-		return Path.normpath(Path.join(self.Root,path))
+			if path.startswith(f'{k}/') : return os.path.normpath(os.path.join(self.Map[k],path[len(k)+1:]))
+		return os.path.normpath(os.path.join(self.Root,path))
 
 class MyWebService :
 	@property
@@ -47,14 +47,14 @@ class MyWebService :
 		self.FSMask = FSMask(self.docs_path);
 		
 		# 3. 初始化時自動建立 docs 目錄
-		if not Path.exists(self.docs_path):
-			makedirs(self.docs_path)
-			with open(Path.join(self.docs_path, "index.html"), "w", encoding="utf-8") as f:
+		if not os.path.exists(self.docs_path):
+			os.makedirs(self.docs_path)
+			with open(os.path.join(self.docs_path, "index.html"), "w", encoding="utf-8") as f:
 				f.write("<h1>Web Service is Running!</h1>")
 		try :
-			print("MASK CONFIG is ",Path.join(self.docs_path,".fsmask"))
-			with open(Path.join(self.docs_path,".fsmask"), "r", encoding="utf-8") as f:
-				self.FSMask.configure(readJSON(f))
+			print("MASK CONFIG is ",os.path.join(self.docs_path,".fsmask"))
+			with open(os.path.join(self.docs_path,".fsmask"), "r", encoding="utf-8") as f:
+				self.FSMask.configure(json.load(f))
 		except Exception as x: 
 			print("Exception: ",x);
 
@@ -96,8 +96,12 @@ class MyWebService :
 		self.mods[class_name] = mod
 
 	def _setup_routes (self) :
+		self.app.router.add_get(f"{self.apipfx}stop", self.api_stop_server)
+		print(f"[Route] Registered: {self.apipfx}stop");
 		self.app.router.add_post(f"{self.apipfx}echo", self.api_echo)
+		print(f"[Route] Registered: {self.apipfx}echo");
 		self.app.router.add_post(f"{self.apipfx}proxy", self.api_proxy)
+		print(f"[Route] Registered: {self.apipfx}proxy");
 		self.app.router.add_get("/{tail:.*}", self.handle_static)
 
 	async def api_echo (self, request) :
@@ -119,9 +123,17 @@ class MyWebService :
 		except Exception as e:
 			return web.json_response({"error": str(e)}, status=500)
 
+	def trigger_graceful_exit(self):
+		raise web.GracefulExit()
+
+	async def api_stop_server(self, request):
+		print("[System] Stop AIOWeb Server")
+		get_running_loop().call_later(0.1, self.trigger_graceful_exit)
+		return web.Response(text="Server is shutting down...\n")
+
 	async def _send_file (self, full_path) :
 		print("[API] Send static: ",full_path);
-		if Path.exists(full_path) and Path.isfile(full_path):
+		if os.path.exists(full_path) and os.path.isfile(full_path):
 			try:
 				async with aopen(full_path, mode='rb') as f:
 					ct = full_path.lower()
@@ -136,11 +148,11 @@ class MyWebService :
 
 	async def handle_static (self, request) :
 		rel_path = request.match_info['tail']
-		if rel_path and Path.basename(rel_path)[0] == '.' :
+		if rel_path and os.path.basename(rel_path)[0] == '.' :
 			return web.Response(text="404: Not Found", status=404)
 		full_path = self.FSMask.resolve(rel_path);
-		if Path.isdir(full_path):
-			full_path = Path.join(full_path, "index.html")
+		if os.path.isdir(full_path):
+			full_path = os.path.join(full_path, "index.html")
 		return await self._send_file(full_path)
 
 	def config_cors (self, allow='*') :
@@ -172,29 +184,36 @@ class MyWebService :
 		"""啟動服務"""
 		print(f"[System] Serving at http://{self.host}:{self.port}")
 		ssl_ctx = getattr(self, '_ssl_context', None)
-		# host:0.0.0.0, port:8080
 		web.run_app(self.app, host=self.host, port=self.port, ssl_context=ssl_ctx)
 
 # --- 執行範例 ---
 if __name__ == "__main__":
-	args = {
-		'apipfx': "/__API__/",
-		'docs': Path.join(Path.dirname(__file__), '..', 'docs'),
-		'mods': Path.join(Path.dirname(__file__), '..', 'mods'),
-		'host': "0.0.0.0",
-		'port': 8080
-	}
-	
-	for a in argv[1:]:
-		parts = a.split('=')
-		if len(parts) == 1:
-			if Path.isfile(parts[0]):
-				with open(parts[0], "r") as cf:
-					args.update(readJSON(cf))
-				continue
-			elif Path.isdir(parts[0]):
-				args['docs'] = parts[0]
-		else:
-			args[parts[0]] = '='.join(parts[1:])
-
-	MyWebService(args).play()
+	try :
+		env={
+			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')),
+			"cwd":os.getcwd()
+		}
+		args = {
+			'apipfx': "/__API__/",
+			'docs': os.path.join(env['awd'], 'docs'),
+			'mods': os.path.join(env['awd'], 'mods'),
+			'host': "0.0.0.0",
+			'port': 8080
+		}
+		with open(os.path.join(env['awd'],'etc/aioweb.json')) as fo :
+			args.update(json.loads(fo.read().format(**env)));
+		for a in argv[1:]:
+			parts = a.split('=')
+			if len(parts) == 1:
+				if os.path.isfile(parts[0]):
+					with open(parts[0], "r") as cf:
+						args.update(json.load(cf))
+					continue
+				elif os.path.isdir(parts[0]):
+					args['docs'] = parts[0]
+			else:
+				args[parts[0]] = '='.join(parts[1:])
+		print(json.dumps(args, indent=4));
+		MyWebService(args).play()
+	except Exception as x :
+		print("Exception: ",x)
