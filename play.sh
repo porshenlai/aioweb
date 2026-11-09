@@ -2,20 +2,12 @@
 
 ROOT=$(dirname $0)
 VENV=${ROOT}/venv
-PY=${VENV}/Scripts/python.exe
-PY=${VENV}/bin/python3.14
+PY=${VENV}/bin/python3
 
 test -f "${PY}" || {
-	THONNY=/d/apps/thonny/python.exe
-	if test -f "${THONNY}"; then
-		echo "Install from thonny"
-		${THONNY} -m venv ${VENV}
-		${PY} -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
-	else 
-		echo "Install on POSIX"
-		python3 -m venv ${VENV}
-		${PY} -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
-	fi
+	echo "Install on POSIX"
+	python3 -m venv ${VENV}
+	${PY} -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
 }
 test -f "${PY}" || {
 	echo "${PY} not found"

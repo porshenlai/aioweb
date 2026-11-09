@@ -52,9 +52,10 @@ class MyWebService :
 			with open(os.path.join(self.docs_path, "index.html"), "w", encoding="utf-8") as f:
 				f.write("<h1>Web Service is Running!</h1>")
 		try :
-			print("MASK CONFIG is ",os.path.join(self.docs_path,".fsmask"))
-			with open(os.path.join(self.docs_path,".fsmask"), "r", encoding="utf-8") as f:
-				self.FSMask.configure(json.load(f))
+			fsmask_config=os.path.join(self.docs_path,".fsmask")
+			if os.path.exists(fsmask_config) :
+				with open(fsmask_config, "r", encoding="utf-8") as f:
+					self.FSMask.configure(json.load(f))
 		except Exception as x: 
 			print("Exception: ",x);
 
