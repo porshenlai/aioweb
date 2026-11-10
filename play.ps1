@@ -1,20 +1,24 @@
-#!/bin/sh
+$ErrorActionPreference = "Stop"
 
-ROOT=$(dirname $0)
-VENV=${ROOT}/venv
-PY=${VENV}/Scripts/python.exe
-THPY=/d/apps/thonny/python.exe
+$ROOT = $PSScriptRoot
+$VENV = Join-Path $ROOT "venv"
+$PY = Join-Path $VENV "Scripts\python.exe"
+$THPY = "D:\apps\thonny\python.exe"
 
-test -f "${PY}" || {
-	test -f "${THPY}" || {
-		echo "Install from thonny"
-		${THPY} -m venv ${VENV}
-		${PY} -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
-	}
-}
-test -f "${PY}" || {
-	echo "${PY} not found"
-	exit 1
+# Note: The original logic falls back to creation only if $THPY is missing.
+# If you intended to create the venv when $THPY exists, change '!Test-Path $THPY' to 'Test-Path $THPY'.
+if (-not (Test-Path -Path $PY -PathType Leaf)) {
+    if (-not (Test-Path -Path $THPY -PathType Leaf)) {
+        Write-Host "Install from thonny"
+        & $THPY -m venv $VENV
+        & $PY -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
+    }
 }
 
-${PY} ${ROOT}/app/aioweb.py $@
+if (-not (Test-Path -Path $PY -PathType Leaf)) {
+    Write-Host "$PY not found"
+    exit 1
+}
+
+$APP = Join-Path $ROOT "app\aioweb.py"
+& $PY $APP @args
