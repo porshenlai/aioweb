@@ -8,7 +8,7 @@ $THPY = "D:\apps\thonny\python.exe"
 # Note: The original logic falls back to creation only if $THPY is missing.
 # If you intended to create the venv when $THPY exists, change '!Test-Path $THPY' to 'Test-Path $THPY'.
 if (-not (Test-Path -Path $PY -PathType Leaf)) {
-    if (-not (Test-Path -Path $THPY -PathType Leaf)) {
+    if (Test-Path -Path $THPY -PathType Leaf) {
         Write-Host "Install from thonny"
         & $THPY -m venv $VENV
         & $PY -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles

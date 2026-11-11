@@ -9,6 +9,7 @@ from aiofiles import open as aopen
 from aiohttp import web
 
 class FSMask :
+	# .fsmaks > {"github":"d:\\projects\\porshenlai.github.io"}
 	def __init__ (self, root) :
 		self.Root=root;
 		self.Map={};
@@ -191,8 +192,8 @@ class MyWebService :
 if __name__ == "__main__":
 	try :
 		env={
-			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')),
-			"cwd":os.getcwd()
+			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')).replace('\\','/'),
+			"cwd":os.getcwd().replace('\\','/')
 		}
 		args = {
 			'apipfx': "/__API__/",
