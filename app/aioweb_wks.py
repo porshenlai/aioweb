@@ -1,7 +1,7 @@
 import json
-from os import path as Path, makedirs
+from os import path as Path, makedirs, listdir
 from datetime import datetime
-from aiohttp.web import Request, json_response
+from aiohttp.web import Request, Response, json_response
 from aiofiles import open as aopen
 
 class WBModule():
@@ -9,8 +9,24 @@ class WBModule():
 		self.Root = path;
 		makedirs(self.Root, exist_ok=True)
 
-	async def getapi_list():
-		console.log(self.Root)
+	async def getapi_list(self, request: Request):
+		name = request.query.get('name', None)
+		if name :
+			print("DEBUG",self.Root,name)
+			try:
+				async with aopen(Path.join(self.Root,name), mode='rb') as f:
+					return Response(body = await f.read(), content_type = 'application/json')
+			except Exception as X:
+				print("Exception:",X)
+				return Response(text="404: Not Found", status=404)
+		else :
+			lst=[];
+			for k in listdir(self.Root) :
+				if k.endswith('.json') : lst.append(k)
+			return json_response({
+				"status" : "success",
+				"list" : lst
+			});
 
 	async def postapi_commit(self, request: Request):
 		""" 上傳資料
