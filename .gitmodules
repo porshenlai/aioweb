@@ -1,0 +1,3 @@
+[submodule "wfApps"]
+	path = docs/app
+	url = https://github.com/porshenlai/wfApps.git
