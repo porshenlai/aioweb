@@ -4,12 +4,15 @@ from datetime import datetime
 from aiohttp.web import Request, json_response
 from aiofiles import open as aopen
 
-class WKS():
+class WBModule():
 	def __init__(self, path):
 		self.Root = path;
 		makedirs(self.Root, exist_ok=True)
 
-	async def api_commit(self, request: Request):
+	async def getapi_list():
+		console.log(self.Root)
+
+	async def postapi_commit(self, request: Request):
 		""" 上傳資料
 		Request: { ... }
 		Response: { "R":"OK" } or { "E":Exception }

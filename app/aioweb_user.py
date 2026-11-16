@@ -6,7 +6,7 @@ from uuid import uuid4
 
 from MySQLite import DB
 
-class User(DB):
+class WBModule(DB):
 	def __init__(self, db_path):
 		super().__init__(Path.join(db_path, "user_system_202604.db"))
 		self.commit(
@@ -25,7 +25,7 @@ tss INTEGER
 )""",()
 )
 
-	async def api_enroll(self, request: Request):
+	async def postapi_enroll(self, request: Request):
 		""" 註冊新用戶 
 		Request: { "phone":"0987654321", "email":"user@host.com", "key":"SHA256Key" }
 		Response: { "R":"OK", "uid":uid } or { "E":Exception }
@@ -44,7 +44,7 @@ tss INTEGER
 		except Exception as e:
 			return json_response({"E": str(e)}, status=400)
 
-	async def api_login(self, request: Request):
+	async def postapi_login(self, request: Request):
 		""" 驗證登入並建立 Session
 		Request: { "phone":"0987654321", "email":"user@host.com", "key":"SHA256Key" }
 		Response: { "R":f"{sid}:{key}" } or { "E":"身分驗證失敗" } or { "E":"帳號已停用" } or { "E":Exception }
@@ -77,14 +77,14 @@ tss INTEGER
 		except Exception as e:
 			return json_response({"E": str(e)}, status=400)
 
-	async def api_disable(self, request: Request):
+	async def postapi_disable(self, request: Request):
 		""" 停用帳號
 		Request: { "sid":session_ID }
 		Response: { "R":"OK" } or { "E":"Invalid SID" } or { "E":Exception }
 		"""
 		return await self._set_active(request, 0)
 
-	async def api_enable(self, request: Request):
+	async def postapi_enable(self, request: Request):
 		""" 啟用帳號
 		Request: { "sid":session_ID }
 		Response: { "R":"OK" } or { "E":"Invalid SID" } or { "E":Exception }
@@ -103,7 +103,7 @@ tss INTEGER
 		except Exception as e:
 			return json_response({"E": str(e)}, status=400)
 
-	async def api_logout(self, request: Request):
+	async def postapi_logout(self, request: Request):
 		""" 移除 Session
 		Request: { "sid":session_ID }
 		Response: { "R":"OK" } or { "E":Exception }

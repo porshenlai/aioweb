@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 
 import os, json
-from sys import argv
+from sys import argv, exit
 from datetime import datetime
+from importlib import import_module
 from asyncio import get_running_loop
 from aiohttp import web, ClientSession as aSession
 from aiofiles import open as aopen
 from aiohttp import web
 
 class FSMask :
-	# .fsmaks > {"github":"d:\\projects\\porshenlai.github.io"}
 	def __init__ (self, root) :
 		self.Root=root;
 		self.Map={};
 
 	def configure (self, args) :
 		self.Map=args;
+		for key in self.Map :
+			print(f"[Route] add link {key} -> {args[key]}")
 
 	def resolve (self, path) :
 		for k in self.Map :
@@ -37,83 +39,83 @@ class MyWebService :
 		}
 
 	def __init__ (self, args) :
-		self.apipfx = args['apipfx']
 		self.host = args['host']
 		self.port = int(args['port'])
-		self.docs_path = args['docs']
-		self.mods_path = args['mods']
 
 		self.app = web.Application()
 		self.mods = {}
-		self.FSMask = FSMask(self.docs_path);
-		
-		# 3. 初始化時自動建立 docs 目錄
-		if not os.path.exists(self.docs_path):
-			os.makedirs(self.docs_path)
-			with open(os.path.join(self.docs_path, "index.html"), "w", encoding="utf-8") as f:
-				f.write("<h1>Web Service is Running!</h1>")
-		try :
-			fsmask_config=os.path.join(self.docs_path,".fsmask")
-			if os.path.exists(fsmask_config) :
-				with open(fsmask_config, "r", encoding="utf-8") as f:
-					self.FSMask.configure(json.load(f))
-		except Exception as x: 
-			print("Exception: ",x);
+		self.apipfx = args['apipfx']
 
-		# 安裝模組
-		try :
-			from aioweb_user import User as modUM
-			self.install(modUM,[self.mods_path])
-			from aioweb_wks import WKS as modWKS
-			self.install(modWKS,["WKStorage"])
+		docs_root = args['docs']
+		try : # search for docs root
+			for dp in args['docs'] :
+				if os.path.exists(os.path.join(dp,"index.html")) :
+					docs_root = dp
+					break
+		except Exception as x :
+			pass
+
+		try : # install backend service api module
+			# static GET
+			print(f"[System] Documents : {docs_root}")
+			self.FSMask = FSMask(docs_root);
+			if 'fsmap' in args :
+				self.FSMask.configure(args['fsmap'])
+			self.app.router.add_get("/{tail:.*}", self.handle_static)
+			# system service
+			self.install(self)
+
+			"""
+			layout:{
+				"aioweb_wks":["WKStorage"]
+				"aioweb_user":["mods"]
+			}
+			"""
+			if 'layout' in args :
+				for mn in args['layout'] :
+					self.install(import_module(mn).WBModule, args=args['layout'][mn], name=mn[7:])
+
 		except Exception as x:
 			print(f"Exception: {str(x):s}")
 			pass
-
-		self._setup_routes()
 
 		if 'cors' in args:
 			# CORS {'cors':'*'}
 			self.config_cors(args['cors'])
 	
-		if 'crt' in args and 'key' in args:
-			# HTTPS {'crt':'server.crt', 'key':'server.key'}
-			self.config_https(args['crt'], args['key'])
+		if 'ssl_crt' in args and 'ssl_key' in args:
+			# HTTPS {'ssl_crt':'ssl_server.crt', 'key':'server.key'}
+			self.config_https(args['ssl_crt'], args['ssl_key'])
 
-	def install (self, Class, Args) :
-		# 初始化模組實例，傳入 mods 路徑供資料庫儲存
-		mod = Class(*Args)
-		class_name = Class.__name__
-		pfx = f"{self.apipfx}{class_name}/"
+	def install (self, Class, args=[], name=None) :
+		if callable(Class) :
+			mod = Class(*args)
+			if not name : name = Class.__name__
+			pfx = f"{self.apipfx}{name}/"
+			self.mods[name] = mod
+		else :
+			mod = Class
+			pfx = f"{self.apipfx}"
 		
-		# 自動掃描 api_ 開頭的函式並加入路由
+		# 自動掃描 [post|get]api_ 開頭的函式並加入路由
 		for m in dir(mod):
-			if m.startswith("api_"):
-				api_func = getattr(mod, m)
-				api_name = m[4:]
-				route_path = f"{pfx}{api_name}"
-				self.app.router.add_post(route_path, api_func)
-				print(f"[Route] Registered: {route_path}")
-		
-		self.mods[class_name] = mod
+			if m.startswith("postapi_") :
+				route_path = f"{pfx}{m[8:]}"
+				self.app.router.add_post(route_path, getattr(mod, m))
+				print(f"[Route] add service <- POST:{route_path}")
+			elif m.startswith("getapi_") :
+				route_path = f"{pfx}{m[7:]}"
+				self.app.router.add_get(route_path, getattr(mod, m))
+				print(f"[Route] add service <- GET:{route_path}")
 
-	def _setup_routes (self) :
-		self.app.router.add_get(f"{self.apipfx}stop", self.api_stop_server)
-		print(f"[Route] Registered: {self.apipfx}stop");
-		self.app.router.add_post(f"{self.apipfx}echo", self.api_echo)
-		print(f"[Route] Registered: {self.apipfx}echo");
-		self.app.router.add_post(f"{self.apipfx}proxy", self.api_proxy)
-		print(f"[Route] Registered: {self.apipfx}proxy");
-		self.app.router.add_get("/{tail:.*}", self.handle_static)
-
-	async def api_echo (self, request) :
+	async def postapi_echo (self, request) :
 		try:
 			body = await request.read()
 			return web.Response(body=body, content_type=request.content_type)
 		except Exception as e:
 			return web.json_response({"error": str(e)}, status=400)
 
-	async def api_proxy (self, request) :
+	async def postapi_proxy (self, request) :
 		try:
 			data = await request.json()
 			target_url = data.get("url")
@@ -128,7 +130,7 @@ class MyWebService :
 	def trigger_graceful_exit(self):
 		raise web.GracefulExit()
 
-	async def api_stop_server(self, request):
+	async def getapi_stop_server (self, request):
 		print("[System] Stop AIOWeb Server")
 		get_running_loop().call_later(0.1, self.trigger_graceful_exit)
 		return web.Response(text="Server is shutting down...\n")
@@ -190,15 +192,18 @@ class MyWebService :
 
 # --- 執行範例 ---
 if __name__ == "__main__":
+	"""
+	([ Usage ])
+		apipfx=... docs=... host=... port=...
+	"""
 	try :
 		env={
 			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')).replace('\\','/'),
-			"cwd":os.getcwd().replace('\\','/')
+			"cwd":os.getcwd().replace('\\','/'),
 		}
 		args = {
 			'apipfx': "/__API__/",
 			'docs': os.path.join(env['awd'], 'docs'),
-			'mods': os.path.join(env['awd'], 'mods'),
 			'host': "0.0.0.0",
 			'port': 8080
 		}
