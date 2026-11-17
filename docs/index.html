@@ -5,10 +5,45 @@
 .quizBar {padding:8px;display:flex;flex-flow:row nowrap;align-items:center;justify-content:space-between;}
 .quizBar>div {white-space:nowrap;}
 .quizBar [data-h] {color:blue; text-decoration:underline;}
+select {font-size:100%;}
 </style>
+
+<script>
+async function listWKS (target_element) {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list')) {
+		const d = D.D.list.reduce((r,v)=>{
+			const s=v.split('_');
+			if (!r[s[0]]) r[s[0]]=[];
+			r[s[0]].push(v);
+			return r;
+		}, {}); // {..."ip":[..."fn"]}
+		Apps.E(target_element).put(
+			Object.keys(d).sort().map((ip)=>d[ip].sort((a,b)=>b-a))
+		);
+	}
+}
+async function calc_score(key) {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list?name='+key)) {
+		Apps.Player.Content.call_module(document.body,'quiz','verify',D.D);
+	}
+}
+</script>
+
+<section>
+	<h2>批改 <span onclick='listWKS(document.getElementById("CBoard"))'>↻</span></h2>
+	<div id='CBoard'>
+		<ul data-c='foreach:'><li>
+			<select data-c='foreach:'><option data-v='text:'></option></select>
+			<span onclick='calc_score(this.parentNode.querySelector("select").value)'>&rArr;</span>
+		</li></ul>
+	</div>
+</section>
+
 <section>
 	<div class='ac h1'>考試名稱</div><hr/>
-	<div class='ac'><button data-h='set:PageNumber:2'>開始考試</button></div>
+	<div class='ac'><button data-h='set:PageNumber:3'>開始考試</button></div>
 	<div data-x='quiz:exam' class='hide'>
 		<div class='quizBar'>
 			<div style='flex:1 1 auto'></div>
@@ -20,6 +55,7 @@
 		</div>
 	</div>
 </section>
+
 <section><div class="mod_quiz" data-qtype="s">
 	Script.py&nbsp;檔案包含下列程式碼：
 	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: brown;">import&nbsp;sys</div><div data-level="0" style="color: darkblue;">print(sys.argv[2])</div></div>
