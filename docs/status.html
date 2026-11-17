@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script src="/App/page.js"></script></head><body style='opacity:0'>
+<!--http://localhost:8080/QZTest.html?quiz_secret=11513938-->
+
+<style>
+.quizBar {padding:8px;display:flex;flex-flow:row nowrap;align-items:center;justify-content:space-between;}
+.quizBar>div {white-space:nowrap;}
+.quizBar [data-h] {color:blue; text-decoration:underline;}
+</style>
+<section>
+	<div class='ac h1'>考試名稱</div><hr/>
+	<div class='ac'><button data-h='set:PageNumber:2'>開始考試</button></div>
+	<div data-x='quiz:exam' class='hide'>
+		<div class='quizBar'>
+			<div style='flex:1 1 auto'></div>
+			<div data-h='set:PageNumber:prev'>&lArr;</div>
+			<div class='section_bookmark'> (<span data-v='text:pn'>0</span>/<span data-v='text:pc'>-</span>) </div>
+			<div data-h='set:PageNumber:next'>&rArr;</div>
+			<div style='flex:1 1 auto'></div>
+			<div data-h='call:quiz:commit:doc:__API__/wks/commit'>&uArr; Commit</div>
+		</div>
+	</div>
+</section>
+<section><div class="mod_quiz" data-qtype="s">
+	Script.py&nbsp;檔案包含下列程式碼：
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: brown;">import&nbsp;sys</div><div data-level="0" style="color: darkblue;">print(sys.argv[2])</div></div>
+	您執行下列命令：
+	<div class="frame">
+		<div>python&nbsp;Script.py&nbsp;Cheese&nbsp;Bacon&nbsp;Bread</div>
+	</div>
+	請問此命令的輸出為何？
+	<div class="bar">
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2k223h79493p00645841166n014m1o3c0i384l271q4f5n1b7r1d2d746j374e5p">Cheese</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1q0e2c5c2f5b6g5t4i0f6u3b3c0v6p0m3m064n2c676s1h0u3r4s0a1q0e2j5i76">Bread</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="506v3c221q6c5v4m6a3q4n0k4a3f757v701d2h524m3l1d5e273r0m1g5g4j4j4t">Bacon</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="717s7r0t4h5b4l7m3f6628096r751q35415d216k7v3g3v5o671l0g3c4c2d4p6b">Script.py</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	請問下列陳述式有何功能？
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">data = input()</div></div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="655263485k4g7r481j3g7g5k024d4k7i1u7e3q27646v3o4a6920243n4r602e48">顯示允許使用者輸入的訊息方塊</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="142j701a6c130u6e2e532b5d621u5v5p5s7h1r2f242e75634g29240u3g524i2c">允許使用者在主控台中輸入文字</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j23470p0c5p4477106s0r5j6m1k5a2c6n6o3q2c1f6e0r754i5j7e426p3s3e5o">建立HTML輸入元素</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="662t153e132p06396l5g7i66423s3q3g7d757h1e1b7u4r4s4p773n343v7l5n38">顯示電腦上的所有輸入周邊裝置</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	您正在為公司開發一個Python應用程式。<br>
+	您需要接受使用者的輸入並將該項資訊輸出至使用者的畫面。<br>
+	您從下列程式碼開始著手。
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkblue;">print("What is your name?")</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5j501a5j6o341h0s0s5k447i697o246m3m0726724v352o707f0u3f2u3g7v0p30" style="color: darkblue;">input(name)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1m1j1v2s1f57581f1p0b5l7u171q4n7b1b4l4n632b166o4j4h791l111p4i3t4f">name = input</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6i0s34414f40522n5i5r162p0u127g3g0o0f77025b4e096207371m2s032l0026" style="color: darkblue;">input("name")</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5c2d630a5j5p363g034m501d294e6d490p2p40020m1p1o1q11663d16647a414s">name = input()</div><div data-level="0" style="color: darkblue;">print(name)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	請問下列程式，print陳述式的輸出為何?
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">x = 'oranges'</div><div data-level="0">y = 'apples'</div><div data-level="0">z = 'bananas'</div><div data-level="0">data = '{1} and {0} and {2}'</div><div data-level="0" style="color: darkblue;">print( data.format(z,y,x) )</div></div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3q2h177k710f593g3460511b4l6e5p3t5s247h066a2f56101s7g5e7d4v5n7e4v">oranges and apples and bananas</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5u585q641v7v0i0f165j4v0n0p7c1i4j2p0k7h2g0b7g5g6a3l6v3o4d401n7744">apples and oranges and bananas</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4j3o4m0u2g501h447m647l1f3u1j4l5f4d18742c1h5a4n204s1n5n5h1u225l6q">bananas and oranges and apples</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6o7f2n1a1a3r521a6u4e332r3k160s706h1q6o1t0v4b793v6c21781l0s7g2g6u">apples and bananas and oranges</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="sort">
+	您需要列印資料，以便呈現出類似下面的範例：
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">Oranges  5.6  1.33</div><div data-level="0">Apples   2.0  0.54</div><div data-level="0">Grapes  10.2 10.96</div></div>
+	具體而言，列印成品必須符合下列需求：
+	<ul>
+		<li>水果名稱必須在10個空格寬的資料行中靠左對齊列印。</li>
+		<li>重量必須在5個空格寬的資料行中靠右對齊列印，而且小數點後面最多一位數。</li>
+		<li>價格必須在7個空格寬的資料行中靠右對齊列印，而且小數點後面最多兩位數。</li>
+	</ul>
+	請完成下列程式
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: red;">def&nbsp;print_table(file)&nbsp;:</div><div data-level="1">data&nbsp;=&nbsp;open(file,&nbsp;"r")</div><div data-level="1" style="color: blue;">for&nbsp;record&nbsp;in&nbsp;data&nbsp;:</div><div data-level="2">fields&nbsp;=&nbsp;record.split(",")</div><div data-level="2" style="color: darkblue;"><span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3c3h677p7c717n1r112v5u73371f385r0l5q3l5f4v13682o1a2f5e30275p5n5l">print("</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="103q1h0q7v1u1t045g5l30197d2568517b1o6l7b6b3d794u0e732f084d5p1i3b">{1:5.1f}</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="024l69643k7k1t745m753s5502170k3a0b724n6p3e796n7q535r6k225c3j6j40">{5:1f}</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r1c3q1n4g770r1f367l1i5f196l4i5n0b0a0a7g32177417755d5v011n724c3o">{0:10}</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="210r790u2d4n7k4o2026515v0v6r6m7m321k134t4m3m250f4c3q187i36617l4q">{2:7.2f}</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0a0745601d2j1n7u75313d011p291o5t03621a661e12167a5b194s7t7m5u4m5b">{7:2f}</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2d041s6p786d3t7n0t3o6d114e1f6e157v2t161p6t4703024s70042i4p1h0b18">{10:0}</span></span>".format(fields[0],&nbsp;eval(fields[1]),&nbsp;eval(fields[2])))</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	某食品公司需要一套程式，讓他們的客服中心能夠用來輸入新咖啡種類的問卷調查資料。<br>
+	此程式必須執行下列工作 :
+	<ul>
+		<li>接受輸入(rating)。</li>
+		<li>傳回五星評比標準的平均評分(average)。</li>
+		<li>將輸出四捨五入到兩位小數。</li>
+	</ul>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">sum = count = done = 0</div><div data-level="0">average = 0.0</div><div data-level="0" style="color: blue;">while done != -1 :</div><div data-level="1"><div class="fxl">rating = <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4h5r34590f2p557s0k5v50515b4r6a077j740c3r42495i2i154f5h0c4g0i6r5b">float( input("Enter next rating (1-5, -1 for done)") )</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p067g3q4332321i1v2s7h711o741f506r0q257v3g7j2e5h42132h7q1h6i0o61">input( "Enter next rating (1-5, -1 for done)" )</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j593d6q063q1k444m1l7c0b7j264h3t6d015j7s7t451a4n474h0v184n5s6911">input "Enter next rating (1-5, -1 for done)"</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="610j3a0s0t3a1e7f182c1m6s5k2o54710e6t1j250t3i0j6e287l1p724m475n6r">print( "Enter next rating (1-5, -1 for done)" ) input "Enter next rating (1-5, -1 for done)"</div></div></div></div><div data-level="1" style="color: blue;">if rating == -1 :</div><div data-level="2">break</div><div data-level="1">sum += rating</div><div data-level="1">count += 1</div><div data-level="0">average = float( sum / count )</div><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2l1606614c0a5f6b311r7c424c333c3j015q694v5c18660o6b7g5325064o1t0a">output("The average star rating for the new coffee is:"</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="263u316j2t4v263c7d580f790b7b736j090e7j1a5c5u196n2g1u4p4v7d4l0d61">printline("The average star rating for the new coffee is:"</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5f0m7o1o627o0h163m16777a112k7e06035m7n2n1c2n1c756b7c2k2u402n3j6h">print("The average star rating for the new coffee is:"</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="741t047r355311086b406m4l671b5j5d4c4r491d3b4a5t6m64612n34207s6i5h">console.input("The average star rating for the new coffee is:"</div></div> + <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5k30787c2d5n7t28642q1u217o663n4c7p7c4k0s4o4v2b4o2g5p630u7m5l0o0k">format(average,'.2f')</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7m632o5j5c7s5a6c547v3v5t0m742r0k4s055o776n4867744k2j1q6d3i5j2027">format.average.{2d}</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4v734i0q3g7r563r2m727d387d7k6a6t2d56266c3s3h6n571j2u3t2a6s43642e">format(average,'.2d')</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2j47651v3b005t033i7s5v0n3l0e5i5r4t3j0k2q4k4a3e5a0b022h6i4j156b18">{average, '.2f'}</div></div>)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="m">
+	您正在建立一個電子商務指令碼來接受使用者輸入並以逗點分隔格式輸出資料。<br>
+	您撰寫了下列程式碼以接受輸入：
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">item = input('Enter the item name: ')</div><div data-level="0">sales = int(input('Enter the quantity: '))</div></div>
+	輸出必須符合下列需求:
+	<ul>
+		<li>以雙引號括住字串。</li>
+		<li>不以引號或其他字元括住數字。</li>
+		<li>以逗點分隔項目。</li>
+	</ul>
+	請問哪兩個可以符合要求?
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r0q5c6s751i6a7q3752365k4t706o2g0d5v3p3f5o2t4i5u711p465l3i0g7s1o">print('"{0}",{1}'.format(item, sales))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0o1i48474q64543b2u2h3h2t6b2l730q1r6e7i563r7p1t4a4e0d24612i010i3j">print('{0},{1}'.format(item, sales))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5177466j6d4p364j5v2u2n1r2c7q507d082h12500e574q1v2s5d4t0c6j2r3h7e">print(item + ',' + str(sales))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="02366a4p425u1t5v250t7i2t4q5u0b255d3m1e7v2b5e6b4241406g3p7n4i727g">print('"' + item + '",' + str(sales))</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	在 Python 程式中，如果希望使用者輸入時，即使用輸入了小數，程式也能自動轉為整數來進行運算。<br>
+	你應該使用以下哪個程式碼片段 ？
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7d4g4d7253131k6u6d0l2i4k06120f00785g56584a6f5o2e7734750a3c387i7k">total = int(eval(input('請輸入總數？')))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5t4e444p5d6e041q2e29262g7d6p076u6q4f256q0i7m775t592t2g3r362s3767">total = float(input('請輸入總數？'))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="597k0m1e2l264m066f6h5j75721v356t550r152r477a5j355m2e7s124l7h051n">total = str(input('請輸入總數？'))</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0s471l236e4o1i0p0s3a556e2j5f1g6c767o0a6n1q680p1j2a140r6l13731v7g">total = input('請輸入總數？')</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="sort">
+	<div>您正在將現有的應用程式轉換成Python。</div>
+	<div>您需要正確編寫所有算數運算式的程式碼。</div>
+	<div>請依運算元優先順序由高到低依序選取 ?</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4p543c2s057o7d58396b260t7m275l1t4k687h4j6s7m4533713q2j564r3r163a">乘法和除法</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="416p3n6u570m3n22085r6844382s0f7a473s6u382j7c6o3u6k4a704m285i4n3j">指數</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0o7g026h213r0i3a1c6l2r7s342d7g7g1g4v29250a366s3f1c1l4r021u3e0p57">加法和減法</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5p757i4v6f7f7v4m3c272s2616714d6h7d4l6i0q2n1g1l1i5i1k5h41045m712j">一元正、負、非</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7d3d59585d5r4b7q293g7i0c5b5h6b0a6v766q7l5d3l767j6i094u76171u7d3p">括弧</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="403s31604e4g6m4k741v484o2u3k0p1r43382d7p1h2a08525v780m165h6t7043">及</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	<div>計算下列 Python 數學運算式</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">5 * (1+2) ** 2 - 3 + 4 / 2</div></div>
+	<div class="bar">
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3q184s6e4i6m070c7d15272c2t6k2m3r2h2k5f0o4h6t173k5l4p190i190k242c">44</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0s6m0r51632p7k0h72194k3b276v033c7n2h533h1e4p0j7e00265d6l07471t75">8</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="241i2c40575h185r0j0t2l7s780u0e0q496o162v1d2p5d2f1g3h3q3c566i7r36">22</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="430b290b2n7a580v6b4g42360j25424v5f511f5v0i4b427g146t646g4m5l6k7j">5</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>你設計了一個數學運算的 Python 程式，程式碼如下：</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">a = 21</div><div data-level="0">b = 5</div></div>
+	<div class="mod_quiz" data-qtype="s">
+		<div>請問 <b>print(a / b)</b> 將輸出什麼 ?</div>
+		<div class="bar">
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="211j6r441a3l741a0q0f6r02306t4o4f5l6l6l1o5a083t265i523s6l100b6v2f">4.2</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0h0u2i6p7k2j4c6u745k282764480f7p5j546e53381d157s505q5e5b7j1f031g">1</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="595843655j1k59033k5f5c302q425a7v0t3b7a580c2j6g301m362e2h190l2g3a">4</div>
+		</div>
+	</div>
+	<div class="mod_quiz" data-qtype="s">
+		<div>請問 <b>print(a // b)</b> 將輸出什麼 ?</div>
+		<div class="bar">
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0h0u2i6p7k2j4c6u745k282764480f7p5j546e53381d157s505q5e5b7j1f031g">1</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="401h1s7a1h7p132g41147p5i2q46127n2d237t08331n6g71641h094924750p2u">4.2</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6j011j1g0q0v122o0t7b114m331a242k6q7m1d545h5e4v3e36725g354v1t3t3f">4</div>
+		</div>
+	</div>
+	<div class="mod_quiz" data-qtype="s">
+		<div>請問 <b>print(a % b)</b> 將輸出什麼 ?</div>
+		<div class="bar">
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1s2r4h180e173p6b557r5j4o0a5i5e0t5d7g5f7k393i5r6e7k564b7e2k6b5i2s">1</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="595843655j1k59033k5f5c302q425a7v0t3b7a580c2j6g301m362e2h190l2g3a">4</div>
+			<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="401h1s7a1h7p132g41147p5i2q46127n2d237t08331n6g71641h094924750p2u">4.2</div>
+		</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	您執行下列程式碼。請問結果為何?
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">value1 = 9</div><div data-level="0">value2 = 4</div><div data-level="0">answer = (value1 % value2 * 10) // 2.0 ** 3.0 + value2</div></div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="612f4i3o6c134p360d4q7i3c7l5u725j5m3u1306080q3g714923172f3f387i57">輸出 5.667</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6e0v5q1d5e78396a5p3j2o3h0p0c7b7o3p5v7f33571e7s3n4a1b014s4s7a6622">輸出 129</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7m7p0b5q4941047i4r3h6q2c263r0m4c0n727d362c6a3o5k4r2236050f001b6h">輸出 5.0</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4m3i770u6o1b50132i0e4n447429782s5v5p56071v3i3737094q4d3t3r7s5o38">發生語法錯誤</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="m">
+	<div>某間銀行必須產生一份報表來顯示所有客戶每天的平均。</div>
+	<div>這份報表必須截斷餘額的小數部分。</div>
+	<div>請問哪兩段程式可以使用 ?</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7v5b4v7n4k4n3179105m5e6v1j0u2u6o2c29150n72736o465e0k2j2d6r787o5v">average_blance = total_deposits//number_of_customers</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="460b6u643n3v5h432f5g2b764m52793r602n5r776s7f2i0t724j4o1h3d796m18">average_blance = total_deposits**number_of_customers</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5n2p224n363o403m171270012v0h7n0b4u6u341l6l1q704a7d5b673o6c4k2r0c">average_blance = int(total_deposits/number_of_customers)</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6a1m4d4k3m151p5g49762r583a056r2r697v0i09294o5n483c7j3d4f6a3k535p">average_blance = float(total_deposits//number_of_customers)</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫一個Python程式來評估算數公式。</div>
+	<div>此公式描述為b等於a乘以負一之後再平方。其中a是即將輸入的成績,而b是結果。</div>
+	<div>您所建立的程式碼片段如下。加上行號僅為參考之用。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">a = eval(input("Enter a number for the question:"))</div><div class="mod_quiz" data-qtype="sort">b = <span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="46303i3i4o246r43507b5p5k7j4q5u411f020c3i436j5q59244t1a5t136k617d">**2</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3d3018531v0s5f615a702r6k077m10606p6r3k2i213e2k1l0j5p32162r3h4d0q">2</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="537h1k7p060p2n6e4n7e277k2v1t64182g6v453k7r1j0j5t1m485i517v24777v">-</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7q6j3j4s307k2u5g5f0m5a54150m594n7l4e0e272708160j1t6m1v2b591f170a">)</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3i187j18785d2m5250752o0r272430625j146b7e1c5f4j2p6q5e6t7q02605g4b">*</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="590i6n0s7e0d016k2r73347l636o3o5h2u1d0e6j4v3p3f0i4j464678481u2b7d">a</span><span data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5l301r694o7n7g0f5g4v3676534r702a4h1o1t386f590v6m57571i162u6m4v4p">(</span></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在建立一個比較數字的Python程式</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">num1 = eval(input ('Please enter the first number: '))</div><div data-level="0">num2 = eval(input ('Please enter the second number: '))</div><br><div data-level="0" style="color: blue;">if num1 == num2 :</div><div data-level="1" style="color: darkblue;">print('The two numbers are equal. ')</div><div data-level="1" style="color: darkgreen;"># 上述 print 陳述式只有在這兩個數字的值相等時才會列印。</div><div data-level="1" style="color: darkgreen;"><div class="bar mod_quiz" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3h35404q6i5u1u7g2o474m2s6h3t1s7p15284g211r193j2i290u1m7h3o0h6u4n">錯誤</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2s2d377b1e493g58637v55726o7b676l2d147u334m5b3302107d28284g5p3p44">正確</div></div></div><br><div data-level="0" style="color: blue;">if num1 &lt;= num2 :</div><div data-level="1" style="color: darkblue;">print('Number 1 is less than number 2. ')</div><div data-level="1" style="color: darkgreen;"># 上述 print 陳述式只有在num1小於num2時才會列印。</div><div data-level="1" style="color: darkgreen;"><div class="bar mod_quiz" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0m1c311j213o577h615o451i5f2a5g39632k090g6f7l1l575q3v097a570b054n">錯誤</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0l697o4b341n18770a4s7h43201n5e0i3j2r5e6k5u5n534s4o1a282b06106m4b">正確</div></div></div><br><div data-level="0" style="color: blue;">if num1 &gt; num2 :</div><div data-level="1" style="color: darkblue;">print('Number 1 is greater than number 2. ')</div><div data-level="1" style="color: darkgreen;"># 上述 print 陳述式只有在num1大於num2時才會列印。</div><div data-level="1" style="color: darkgreen;"><div class="bar mod_quiz" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3h35404q6i5u1u7g2o474m2s6h3t1s7p15284g211r193j2i290u1m7h3o0h6u4n">錯誤</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2s2d377b1e493g58637v55726o7b676l2d147u334m5b3302107d28284g5p3p44">正確</div></div></div><br><div data-level="0" style="color: blue;">if num2 = num1 :</div><div data-level="1" style="color: darkgreen;"># 上述 if 陳述式是無效的比較。</div><div data-level="1" style="color: darkgreen;"><div class="bar mod_quiz" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2s2d377b1e493g58637v55726o7b676l2d147u334m5b3302107d28284g5p3p44">正確</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3h35404q6i5u1u7g2o474m2s6h3t1s7p15284g211r193j2i290u1m7h3o0h6u4n">錯誤</div></div></div><div data-level="1" style="color: darkblue;">print('The two numbers are the same. ')</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	請問變數宣告後它們的資料類別依序是？
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">age = 12</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="411e2n0r7i6t6q3j6q426e2o4c0v3h317b722t531s386q02384215647t457e2b">int</div></div><div data-level="0">minor = False</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3v4r402o2j5p0p3n0n46477u1u1m4q2105474r6b1l2i0s6v1o300o3q6j256h3t">boolean</div></div><div data-level="0">name = 'David'</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l6q4d3v547q2g2u3n1c4022796i4i4m3f672h4q4h4r7a105e2a0j044c5l294h">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div></div><div data-level="0">weight = 64.5</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4s493m0j1n4i7n5p3j685s1s5e2i5u014t4k5l05140u7g4r3s041d712d4v281a">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div></div><div data-level="0">zip = '545'</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># <div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l6q4d3v547q2g2u3n1c4022796i4i4m3f672h4q4h4r7a105e2a0j044c5l294h">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您必須識別各種類型作業的資料類型。
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">type(5.0) </div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s">#<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4s493m0j1n4i7n5p3j685s1s5e2i5u014t4k5l05140u7g4r3s041d712d4v281a">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div></div><div data-level="0">type('True') </div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s">#<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l6q4d3v547q2g2u3n1c4022796i4i4m3f672h4q4h4r7a105e2a0j044c5l294h">str</div></div><div data-level="0">type(False) </div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s">#<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3v4r402o2j5p0p3n0n46477u1u1m4q2105474r6b1l2i0s6v1o300o3q6j256h3t">boolean</div></div><div data-level="0">type(+1E10) </div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s">#<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4s493m0j1n4i7n5p3j685s1s5e2i5u014t4k5l05140u7g4r3s041d712d4v281a">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	您執行下列程式碼，請問輸出值為何 ?
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">list_1 = [1,2]</div><div data-level="0">list_2 = [3,4]</div><div data-level="0">list_3 = list_1 + list_2</div><div data-level="0">list_4 = list_3 * 3</div><div data-level="0" style="color: darkblue;">print(list_4)</div></div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7e6q0n4r4i215k6q72644d2v0r0m3h751i256i4c593h3g30682s677r3c2g295s">[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="171q1825151p7j0q4o685b187h1p2v233i50227d1h29471m294j2d4l6e6i5p6m">[[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="081g7e6o07405t0u0l515v2e01767a5l125t3n2q2p556t5a636h7l3v6e633a29">[3, 6, 9, 12]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l013v2s590l127i4t715u42236u1f0t28506u1o377g3f513515183k5o2k3i0r">[[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]]</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您撰寫了以下這段程式碼:<br>
+	請評估這段程式碼,然後從每個下拉式清單中選取正確的選項以回答問題。
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">a = 'Config1'</div><div data-level="0" style="color: darkblue;">print(a)</div><div data-level="0">b = a</div><div data-level="0">a += 'Config2'</div><div data-level="0" style="color: darkblue;">print(a)</div><div data-level="0" style="color: darkgreen;"># 請問顯示的內容為何 ?</div><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="380i4q5j5i0a7e32401h0e7m776t2g6v0538767l755h3e255m0p1a295t73620a">Config1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2s2t531i0e6t4i0b5169603n3k134s0c5h2i0j305q4c421a2h1p1v5b7h7r1h">Config1Config2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j687h6f5q4a0d6c720r0i597t1q5o551f592u227l1f097e37197s703s556a5l">Config2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p3k5h3e642g6h0m2b4q2n333m2f6e5p3s0i4q2343344j6k2r7b3m0v5b4s7h04">Config2Config1</div></div><div data-level="0" style="color: darkblue;">print(b)</div><div data-level="0" style="color: darkgreen;"># 請問顯示的內容為何 ?</div><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0a1d6t556f5m603354776f2g3t4h7v5818293m6n2a291t6u5e5p0v4r7f3k7k7o">Config1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7u617v025j7r5l2m7l1h1p3j2e4t38624t60671s13137u3m1b3t3d4a61237m63">Config1Config2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j687h6f5q4a0d6c720r0i597t1q5o551f592u227l1f097e37197s703s556a5l">Config2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p3k5h3e642g6h0m2b4q2n333m2f6e5p3s0i4q2343344j6k2r7b3m0v5b4s7h04">Config2Config1</div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="m">
+	函式必須執行下列工作:
+	<ul>
+		<li>提取浮點數(float)的絕對值</li>
+		<li>移除整數後面的任何小數點。</li>
+	</ul>
+	請問您應該使用哪兩個數學函式?。
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="520h7r425a077h5c1u7i4f7k4m5t193i5t1l31355q6d3i1d037t1v0c5n3v6p0e">math.floor(x)</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="01361d75170g5j0q6r0l6u7o0o2050131b080a2r49581v6i65411g2b6t4u2q04">math.fmod(x)</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5s7j3q5s4q656v2e2p645u607s314o0p2n0o077l197l5p71147t1j610m603s37">math.fabs(x)</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="55300g7c3t6j71503f2f465r21114i581c641r2j0h773b2h785b0m5c1r5l3k6p">math.frexp(x)</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	根據下列程式，請回答註解中的問題。
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">age&nbsp;=&nbsp;input("Enter&nbsp;your&nbsp;age:&nbsp;")</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># age 的資料型態為<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l6q4d3v547q2g2u3n1c4022796i4i4m3f672h4q4h4r7a105e2a0j044c5l294h">str</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div></div><div data-level="0">year&nbsp;=&nbsp;input("Enter&nbsp;the&nbsp;four-digit&nbsp;year:&nbsp;")</div><div data-level="0">born&nbsp;=&nbsp;eval(year)&nbsp;-&nbsp;eval(age)</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># born 的資料型態為<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="411e2n0r7i6t6q3j6q426e2o4c0v3h317b722t531s386q02384215647t457e2b">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="29333i5t395j3k6u4l0n19716o711v6h7i1o497k6n732l7q123e3i4e5v0t3u3c">str</div></div><br><div data-level="0">message&nbsp;=&nbsp;"You&nbsp;were&nbsp;born&nbsp;in&nbsp;"&nbsp;+&nbsp;str(born)</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># message 的資料型態為<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p2l2c117b2t5j5r0l524i61023c5s4776217m4m475m00096r6h626b5m6n6c1f">boolean</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7l6q4d3v547q2g2u3n1c4022796i4i4m3f672h4q4h4r7a105e2a0j044c5l294h">str</div></div><div data-level="0" style="color: darkblue;">print(message)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您建立了下列程式來找出會議室並顯示房間名稱。
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">rooms = {1: 'Foyer', 2: 'Conference Room'}</div><div style="color: darkgreen;" class="mod_quiz" data-qtype="s"># 請問哪兩種資料類型儲存在 rooms 清單中？<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2f293t0u342f0i6k7p1j18555b2j2s7l5n4v2t3l794s5s7o7s0o2h2k740i4d5m">浮點數和布林值</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1m483v7a1j0e1r7o6h6u7s6e645d7o3p0k3i7l2h4a6t5247445e4q7i2i38420s">整數和字串</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2e6l1s3b2m197d650h3j660408774r5n2l3q5k532660141r7u0j2i6m1m296q0v">布林值和字串</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6d3j1d421h231k0j4p40755k6d6l68695p0u5h1k0n4t3k3h4p78656b1h74141g">浮點數和整數</div></div><div data-level="0">room = input('Enter the room number: ')</div><div class="bar mod_quiz" style="color: darkgreen;" data-qtype="s"># 請問 room 是哪種資料類型？<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4b1n09464s694s2e0m3v5k3b3477550d0g387b230604046i266d5s394t0b0o4o">bool</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a3v0c63485h3d6n3g020u1v7c4k1a546f09183f7o0f5u0r4l7d7h2c5f3d257f">float</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k054u6i527q7k0d7g28525a7o656s6u2j667l2l1v6b0n700p4r7p6749020b4t">string</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="262c5j5a7i5r0u6o534n14244n1j5k057q3p332k43331m52577r5t5d272h564o">int</div></div><div data-level="0" style="color: blue;">if not room in rooms:</div><div data-level="1" style="color: darkgreen;"><div class="mod_quiz" data-qtype="s"># 為什麼上方判斷式無法尋找房間？<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0o167q2l0c3a1k1f2i5n75515i2q1e2l4416780u4n2r6c2j4c63780s1o3a7h64">無效的語法</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="58065r117c6e3h64246j5o102s095k2f60761f242f3v084j0m0b4012155j2310">不符合的資料類型</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7g1k034p217l0j40126d473i1n1d0c441407114r6q0k4u6j225g1t7b1e0l0d4a">命名錯誤的變數</div></div></div><div data-level="1" style="color: darkblue;">print('Room does not exist.')</div><div data-level="0" style="color: blue;">else:</div><div data-level="1" style="color: darkblue;">print("The room name is " + rooms[room])</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	<div>您撰寫了下列程式碼來根據學生目前的成績 (grade) 和排名 (rank) 判斷學生的最終成績。</div>
+	<div>請問下列程式將會列印何值?</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">grade = 76</div><div data-level="0">rank = 3</div><div data-level="0" style="color: blue;">if grade &gt; 80 and rank &gt;= 3 :</div><div data-level="1">grade += 10</div><div data-level="0" style="color: blue;">elif grade &gt; 70 and rank &gt; 3 :</div><div data-level="1">grade += 5</div><div data-level="0" style="color: blue;">else :</div><div data-level="1">grade -= 5</div><div data-level="0" style="color: darkblue;">print(grade)</div></div>
+	<div class="bar">
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2u081p5j556p6p5s4s0v351s256f4o1p4v2i7b1e6e1b286e55200m4i5u5o255j">71</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="644m2t260j1h735u4l170g7j720d006e7058700m6p4p2n363r09774m2m7a2e5i">76</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6o333t7h7l5n08106a7d5l5v7m264o2g6o0k5u1r7b4i407g5d4j5a7u541q526f">86</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6f3k7s5541093i465g6p523u3h6t312o4s266a746g7k61450v2a0l37727v0n51">81</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在使用Python編寫數學公用程式的程式碼。</div>
+	<div>您正在撰寫一個函式來方根。此函式必須符合下列需求:<ul>
+		<li>如果 a 為非負數, 則傳回 a ** (1 / b)</li>
+		<li>如果 a 為負偶數, 則傳回 'Result is an imaginary number'</li>
+		<li>如果 a 為負奇數, 則傳回 -(-a) ** (1 / b) 請從每個下拉式清單中選取正確的程式碼片段以完成程式碼。</li>
+	</ul></div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: red;">def safe_root (a, b):</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="101m620i5v1h3j7g0q0k4u4b290q0g41010m4b1h7d5e703f764p0v0n5v3d201n">if a%2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="49693l6o54426838262b6m4p6q676s3h5b3h4t484j7o364c6t7c2d4s5d4b7566">if a &gt;= 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1k1b1e6k6o6u0p3t4b755i5q334c644u3a6l2l7n400o135p2a5l3o35272i292d">else :</div></div></div><div data-level="2">answer = a ** (1 / b)</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="101m620i5v1h3j7g0q0k4u4b290q0g41010m4b1h7d5e703f764p0v0n5v3d201n">if a%2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="080n505o7c475m6l4i7o40741q323s1357615t1d4v1h102d7g2t1g2e7l2o1b0p">if a &gt;= 0 :</div></div></div><div data-level="2" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="080n505o7c475m6l4i7o40741q323s1357615t1d4v1h102d7g2t1g2e7l2o1b0p">if a &gt;= 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1k1b1e6k6o6u0p3t4b755i5q334c644u3a6l2l7n400o135p2a5l3o35272i292d">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2818573m6e165c5h5q6n6v4e585j5n11561b3b232o3346070i4t790q5u47514i">if a%2 == 0 :</div></div></div><div data-level="3">answer = "Result is an imaginary number"</div><div data-level="2" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="101m620i5v1h3j7g0q0k4u4b290q0g41010m4b1h7d5e703f764p0v0n5v3d201n">if a%2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="080n505o7c475m6l4i7o40741q323s1357615t1d4v1h102d7g2t1g2e7l2o1b0p">if a &gt;= 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div></div></div><div data-level="3">answer = -(-a) ** (1 / b)</div><div data-level="1"><div>return answer</div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫一個Python程式來判斷使用者輸入的數字(num)是一位數、兩位數,還是超過兩位數(digits)。</div>
+	<div>請從每個下拉式清單中選取正確的程式碼片段以完成程式碼。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">num = int(input("Enter a number with 1 or 2 digits: "))</div><div data-level="0">digits = "0"</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1c3f5n7d47637o272f7t3a627p4n3m517t5e36543b4h4440540r4m6v756u051i">if num &gt; -10 and num &lt; 10 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1a2066697806686c0b50571t114c7a3b0m4d764f781o6j4c057d504k16355751">if num &gt; -100 and num &lt; 100 :</div></div><div data-level="1">digits= "1"</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7755313h73433r187t4d63627f4c751n752c0r5u27796j201q6t12032j5e4a18">if num &gt; -10 and num &lt; 10 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="553328635p6m3l5o4o7h6i1i583e7n7f696h232220147c3m2i1b1v4c6o700c4i">elif num &gt; -100 and num &lt; 100 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="445k465u3m1n0u096m453a7n04463s4h203l0e6c2o3k3e7u2p70281d5k0i1112">elif num &gt; -10 and num &lt; 10 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1a2066697806686c0b50571t114c7a3b0m4d764f781o6j4c057d504k16355751">if num &gt; -100 and num &lt; 100 :</div></div><div data-level="1">digits= "2"</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2n372c5s1v6n6q2q5r5858676i3s5m7a6o1t3q4r7t2v36012c0c0s2m1a0p0h3m">elif:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2o3i1s4p7i4l370t2a63314o0u2p1v296t0i4j1q4h47682s021f3e4l5m5n6j3r">else:</div></div><div data-level="1">digits = "&gt;2"</div><div data-level="0" style="color: darkblue;">print(digits + " digits.")</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在建立一個函式來根據下列規則計算入場費(admission_fee)<ul>
+		<li>未滿5歲的任何人=免費入場</li>
+		<li>年滿5歲以上的任何在校學生=10美元</li>
+		<li>5至17歲的任何非在校人士=20美元</li>
+		<li>超過17歲的任何非在校人士=50美元</li>
+	</ul></div>
+	<div>rate 代表美元價格。</div>
+	<div>請從每個下拉式清單中選取正確的程式碼片段以完成程式碼。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: red;">def admission_fee (age, school):</div><div data-level="1">rate = 0</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6h4m5s0m512m4n4l117v6m74717g6v053v7o4n4556376q5c4j1a6k2d2s2o1q5j">if age &gt;=5 and school == False :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7i2022707v4m371s091h4q4s006s4p2u6e2e386m043a1d7j7u4n7p511j771k0n">if age &gt;=5 and school == True :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2g404q1i4d01084f571p6n7q7a1n257c5g4b4k1l4t4b5o3s5f2v3p173k0k180s">if age &gt;=5 and age&lt;=17 :</div></div></div><div data-level="2">rate = 10</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="615p45785r2s3q351e5g3g4c544i1e3k661a051q3f7g6r7c5l7v0a1p686o2f3j">else age &gt;=5 and school == False :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r4c6r2o2i25574546112g3t2f1g5o4g3o747l1b2s3g112o5b0h603g7j730n6l">elif age &gt;=5 and school == True :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1g376l0g0m773k6v5j146e0n332s4a3k3l1b2s1b5963776t60152k7h06467k66">elif age &gt;=5 and school == False :</div></div></div><div data-level="2" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5d2h7j3j664q397v07604k120q3s612j2k6g1g0j3n3k1d6o374527250l4r1054">if age &gt;=5 and school == True :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4a5s12470r0a0f6k1f6722735a0j7e6n2p4i7t290t0q79133h4v4p3h1b563k42">if age &lt;=17 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1l6p644t683e412n5t0306362i0r4l780g5358164t753b0h7d2a722n560r7f04">if age &gt;=5 and school == Fasle :</div></div></div><div data-level="3">rate = 20</div><div data-level="2" style="color: blue;">else:</div><div data-level="3">rate = 50</div><div data-level="1">return rate</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>你開發一個程式碼用來判斷整數是奇數還是偶數：</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: brown;">from random import randint</div><div data-level="1">num = randint(1, 100)</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0l1j4n59771t324j236j7s2a5j4g0t635f0k2t354e704p7n313b1l1h725a0p26">if num % 2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2144777u2c6v3b2l0r3p7j0v5d0q046h6h49210817586c0f7e4q7n6a6l776i06">if num / 2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="454s3n7j6s731s7i6j0u5o3u487c2v0u0k5l2q3r586n3h020a3o1g177t7s623v">if num / 2 = 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="124v361d5p676n0a6l562q02707l1l600v246j146c6i303l1t6a206c727n1l55">if num % 2 = 0 :</div></div></div><div data-level="2" style="color: darkblue;">print("%d 是偶數" % num)</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="107s6j4k4q1j4i00205n4b0i2p1q7b200a1g4s1f2u0q0p5i6e0j4q4h442v2k02">if num / 2 != 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="151o2m6c6i0u4t4g01426n2u0u391v371b0n6d385j410u301a627l5f1n665v49">elif num / 2 == 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2h4o321m00124t4h2r4e6j432m6p726m3a61582171314i5v792l4h2i4j093j3c">if num / 2 &lt;&gt; 0 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div></div></div><div data-level="2" style="color: darkblue;">print("%d 是奇數" % num)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在為某間零售商店撰寫 Python 程式，將庫存追蹤自動化。</div>
+	<div>您的第一項工作是讀取庫存交易的檔案。該檔案包含前一天的銷售量，包括商品識別碼、價格和數量。</div>
+	<div>該檔案的資料範例如下所示:</div>
+	<pre>10, 200, 5
+20, 100, 1</pre>
+	<div>程式碼必須執行下列工作:<ol>
+		<li>讀取並列印檔案的每一行。</li>
+		<li>忽略空白行。</li>
+		<li>讀取所有行之後關閉檔案。</li>
+	</ol></div>
+	<div>您撰寫了以下這段程式碼。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">inventory = open("inventory.txt", 'r')</div><div data-level="0">eof = False</div><div data-level="0" style="color: blue;">while eof == False:</div><div data-level="1">line = inventory.readline()</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="522t3n1i3m2773454k7k1f5d365u7k6k793d043d0n78296k497u3i3g1k75411e">if line != '' :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7t5t0a5m0a0u7b2u1o1j4246627l3n071j1o4n1j49701851522g7i4l2u134l7k">if line != None :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="63127u5m2d3m272u7i293l7a0419596m135i1k2u6e3u7k2b4h7u550h4o3d6h34">if line != '\n' :</div></div></div><div data-level="2" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7t5t0a5m0a0u7b2u1o1j4246627l3n071j1o4n1j49701851522g7i4l2u134l7k">if line != None :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7u35332v653b5h7a5d4b4r4n621v0l1d6b594q7n3e1j03034d1l7l3m311p214a">if line != "\n" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="16195t0o5p2i100l2m0t497a010j4a7e111n4v5f07163i2g7s57595k2k192r28">if line != "" :</div></div></div><div data-level="3" style="color: darkblue;">print(line)</div><div data-level="1" style="color: blue;">else :</div><div data-level="2" style="color: darkblue;">print ("End of file")</div><div data-level="2">eof = True</div><div data-level="2">inventory.close()</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在設計一個決策結構, 以將學生的數字成績(grade)轉換成字母成績(letter_grade)。</div>
+	<div>此程式必須依照下表的指定內容指派字母成績:</div>
+	<table align="center" border="1" cellpadding="5"><tbody>
+		<tr><th>百分比範圍</th><th>字母成績</th></tr>
+		<tr><th>90到100</th><td>A</td></tr>
+		<tr><th>80到89</th><td>B</td></tr>
+		<tr><th>70到79</th><td>C</td></tr>
+		<tr><th>65到69</th><td>D</td></tr>
+		<tr><th>0到64</th><td>F</td></tr>
+	</tbody></table>
+	<div>舉例來說,如果使用者輸入90,輸出就應該是'Your letter grade is A'。</div>
+	<div>同樣地,如果使用者輸入89,輸出就應該是'Your letter grade is B'。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">grade = int(input("Enter a numeric grade"))</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6l14423c7s6b5n6h1e6i0713676p3b3r015r5a7k3u49267s782s400g4d0d6m6j">elif grade &gt; 90:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2g7b0g5958467d7c2p1u424g630e6e7d4a4f677e102l4v6q5m6d3t1i6g274f5k">if grade &gt;= 90:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5r4i4e7t0u674d5q3r152h3k4r3u622t6e360i0l6r154a530m7r6h345s640a23">if grade &lt;= 90:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="395u0d622668517g2h0j75325c1j1q7g36282r796h66520070676a10125g1e0u">elif grade &gt;= 90:</div></div><div data-level="1">letter_grade='A'</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="30276v775q0f360g1t700u232d604p2a3o7a2d3t4l37781v5d525v5t120v2n0c">elif grade &gt;= 80:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="334g470u1i1i127e13191p6e4f732f137m0178775p0111516k640v560j1v4k4n">elif grade &gt; 80:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2p16054n5e751p6s1n6e3p1v3v6p0q450e5k0m4b7f7i7f2p1146575f3p6l1s7v">if grade &gt; 80:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1a5c262t7k2i7l7k0j5e3a0l6f375m687n6q2p4m2q1l5j655k463761205p097n">if grade &gt;= 80:</div></div><div data-level="1">letter_grade='B'</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0e622g6t3c0k3v153o07651n0t3p00402i7j6m7m7g313b640i5253562h5r2301">if grade &gt; 70:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6f5l6u4k6c0e4h5t5u301l1j442t672n79351p7b7363333v3v540v361c1d1b6v">if grade &gt;= 70:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7u7r1t012f1d7g195v7n0049632m097u6q521u2s5b0m6t1l2k2d481t4h1n1e34">elif grade &gt; 70:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="473d47682n282o45224q6u455l762f5o4i565h030r405u1b1f337v4g380g4f5m">elif grade &gt;= 70:</div></div><div data-level="1">letter_grade='C'</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="072n2k76262l4m2m3h645g0e0r1j685r0u3b623e6d725n3i391d157t303c602u">elif grade &gt; 65:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3l3f7m6q0g45540k7o3h760j2s3r637l7n6i3k4l441v1b03724m53515m3m4s21">elif grade &gt;= 65:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5r1h251u40201j6b2t4s766e4e4032183b1g7k166i6t5n6a7c3e636o2l1j5475">if grade &gt;= 65:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6j7h326m770j324h271r3e5p0h5q597g4r2a127a300v7i5d601608201c0l6o74">if grade &gt; 65:</div></div><div data-level="1">letter_grade='D'</div><div data-level="0" style="color: blue;">else:</div><div data-level="1">letter_grade='F'</div><div data-level="0" style="color: darkblue;">print("Your letter grade is ", letter_grade)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>某間影音商店需要設法判斷向客戶收取的DVD租借金額。</div>
+	<div>此金額取決於客戶當天歸還DVD的時間。</div>
+	<div>此外，星期四和星期日還有特價優惠。</div>
+	<div>費用結構如下所示:<ul>
+		<li>預設費用 (cost per_day) 是每晚1.59美元。</li>
+		<li>如果客戶在晚上8點過後歸還DVD，商店會向他們額外收取一晚的費用。這筆費用儲存在ontime變數中。</li>
+		<li>星期日 (Sunday) 租借的DVD可享整個租借期間七折優惠。租借日期儲存在weekday變數中。</li>
+		<li>星期四 (Thursday) 租借的DVD可享整個租借期間五折優惠。租借天數儲存在 days_rented 變數中。</li>
+	</ul></div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkgreen;"># DVD Rental Calculator</div><div data-level="0">ontime = input("Was the video returned before 8 PM? Y or N").lower()</div><div data-level="0">days_rented = int(input("How many days was the video rented?"))</div><div data-level="0">weekday = input("What day was the video rented?").capitalize()</div><div data-level="0">cost_per_day = 1.59</div><br><div class="fxl" style="color: blue;">if ontime <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="666t3j2u6870716h7e7p762k3g5j0r6q5t3n763g3h4r5s696i4135672q4k2q7t">== "n" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="39735s3n445t3t236m565c5o3n7j36333c344u092221776k337f4s6p7e622m04">!= "n" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="431k4m6n0g2d1a1u7b430q09414e0n7g6a6n174f3g294l120m0s545374170e06">== "y" :</div></div></div><div data-level="1">days_rented +=1</div><div class="fxl" style="color: blue;">if weekday <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="64067b434g5960032m4u001m532e385r523h4e6c55716n6r2p3c3q0g5t3b6a51">&gt;= "Sunday" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="543i2s1g1s05263b7e2n4n277n1l093g2s6538230b5g3t3l381s4c4p1b6d3a56">== "Sunday" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4e0s0l6f4t3267194t3o7v1m1j382i6a1q202g0d2p023u1s5s686662281e4u5v">is "Sunday" :</div></div></div><div data-level="1">total = (days_rented * cost_per_day) * 0.7</div><div class="fxl" style="color: blue;">elif weekday <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="015b3f5i1v5s3v787754290p475a5o4k5m0p5d1m3v537q3r0q7n0m0g1c1g4f53">== "Thursday" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4q415n5u7c3l5i5h3h1v4e623k211d0l793i5p0u3o6t4q2k59546c0h1r70732d">&lt;="Thursday" :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0g7o4l3c23412b1d6854766s3j0b2k1r6g3q7u5o3l4a1p673v373h146h2f3j4u">is "Thursday" :</div></div></div><div data-level="1">total = (days_rented * cost_per_day) * 0.5</div><div data-level="0" style="color: blue;">else:</div><div data-level="1">total = days_rented * cost_per_day</div><div data-level="0" style="color: darkblue;">print("Cost of the DVD rental is: $", total)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫程式碼來根據下列準則傳回字母成績：<ul>
+		<li>變數grade會將數字成績儲存成 0 到 100 之間的整數。</li>
+		<li>90 到 100 的成績 = A。</li>
+		<li>80 到 89 的成績 = B。</li>
+		<li>70 到 79 的成績 = C。</li>
+		<li>其他所有成績都不及格。</li>
+	</ul></div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div class="fxl" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6v596h2f7r0o7g7q7g3d3g6h4r5g65336q1t2g7a5e7b5b4s0i0n3a6b6l1u4t3i">elif</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k210b5s1g493q7i0u575v5b117t76477g2d0k6q4q753h225d6e6u5t5n106h28">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7r2d702c7v2l1j521l5b1f3t144q3q0b04090t6a03796n4l5k4b365d225u5a3t">else</div></div> grade &lt;= 100 :</div><div data-level="1" style="color: blue;"><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k210b5s1g493q7i0u575v5b117t76477g2d0k6q4q753h225d6e6u5t5n106h28">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6v596h2f7r0o7g7q7g3d3g6h4r5g65336q1t2g7a5e7b5b4s0i0n3a6b6l1u4t3i">elif</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7r2d702c7v2l1j521l5b1f3t144q3q0b04090t6a03796n4l5k4b365d225u5a3t">else</div></div> grade &gt;= 90 :</div></div><div data-level="2" style="color: darkblue;">print "Your grade is A."</div><div data-level="1" style="color: blue;"><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1t5931332c4d5d56254v14331o4m14416u14353u456c175r0v5d625d261l0302">elif</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7r2d702c7v2l1j521l5b1f3t144q3q0b04090t6a03796n4l5k4b365d225u5a3t">else</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div></div> grade &gt;= 80 :</div></div><div data-level="2" style="color: darkblue;">print "Your grade is B."</div><div data-level="1" style="color: blue;"><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7r2d702c7v2l1j521l5b1f3t144q3q0b04090t6a03796n4l5k4b365d225u5a3t">else</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1t5931332c4d5d56254v14331o4m14416u14353u456c175r0v5d625d261l0302">elif</div></div> grade &lt; 80 <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="160r767j4j3t4u1g1f7f3o1v7n270d672s3t02270f0n7s1000420u3a5v3r4802">not</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5h5q342j2c2g6d51696q6e0q1b6p4u7u1j252k3t454l750a536c5s0a1q4m607n">or</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6m2d6347796a6l5t1d097l150l0l1h6t5n336m3m6c170e7255785d497u5k0845">and</div></div> grade &gt; 69 :</div></div><div data-level="2" style="color: darkblue;">print "Your grade is C."</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5k2m2f7f0m2l0t264b0m67582l406b2n195i4m5c69214l7i5e6i6d1o1e1h2t79">if :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="14650b6k2v0u081q491t5b4r0k740t68541d2e6s251h1d2j6i165174570k3h22">for :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div></div> </div><div data-level="2" style="color: darkblue;">print "Your grade is failing."</div><div data-level="0" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="14650b6k2v0u081q491t5b4r0k740t68541d2e6s251h1d2j6i165174570k3h22">for :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5k2m2f7f0m2l0t264b0m67582l406b2n195i4m5c69214l7i5e6i6d1o1e1h2t79">if :</div></div> </div><div data-level="1" style="color: darkblue;">print "Invalid grade entered."</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫一個函式來執行數字的安全除法。</div>
+	<div>您需要確保分母和分子會傳遞給函式,而且分母不為零。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: red;">def safe_divide (numerator, denominator) :</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="763a4n2c2d4k5v354q6d33560r2p6n0m542n4s7802475p7o3r326s5f6n5o121t">if numerator is None or denominator is None:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="666g0p316l2h2p7v3r2k551d0v440q596v2o1a752r404a0e1r65067l5k3o5d44">if numerator = None or denominator = None:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2a2g3m1559113a5r3i6a0q5t6f526a5i2e0t133q2s4a0s751k6d66352v4e1b46">if numerator is None and denominator is None:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="064v2v556l787v0c1k5m1555056p7p5q18610j233018174c6m595a5a4n5l7f13">if numerator = None and denominator = None:</div></div></div><div data-level="2" style="color: darkblue;">print("A required value is missing.")</div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4o5q6v0c2i6k5q7r3f486s3t5g2i45611b700b3a545q7o6r2h375e656177272e">elif denominator in 0:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4j2b172m4h161j6p2f4m202g666d4s4p4v52725c4s583f3450287n68477e135v">elif denominator == 0:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7i675o3r0t6p6t6r0r1u176l4l6i4t6m0k012v7r7v0u0e60504c0o15404o5f14">elif denominator != 0:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4524064v4909453q523d4v0h0m517f4k5s662d4m092j550c5p3c2k5i3b7n5l64">elif denominator = 0:</div></div></div><div data-level="2" style="color: darkblue;">print("The denominator is zero.")</div><div data-level="1" style="color: blue;">else :</div><div data-level="2">return numerator / denominator</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您為公司開發了一個Python應用程式。</div>
+	<div>您需要完成程式碼,好讓print陳述式正確。</div>
+	<div>請從每個下拉式清單中選取正確的程式碼片段以完成程式碼。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">numList = [1, 2, 3, 4, 5]</div><div data-level="0">alphaList = ["a", "b", "c", "d", "e"]</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="75102p116q2j654b275i400n4h55366i31610d554q7o7r294r1f4q4u1k115i25">if numList += alphaList :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3i7h696h3j1j2b1s2n590q2m2i3k077u596e2l6d3k7l106t446d2r7f29030j3k">if numList = alphaList :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5g6v3g6g50107d1g6b684v7m033t4j3851355c2l3u6p6k6v2p495n1e7q2e2p2b">if numList == alphaList :</div></div><div data-level="1" style="color: darkblue;">print("The value in numList are equal to alphaList")</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="695k0e662h5t056v630q7e005b7k7c3g6p384j262g3o50643r5372784r225t0h">elif :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="342b2c4o35497s3o1r2b1e3s1j6h4a0p6n283l6t002r670k566u047a0f3v0p6i">else :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="607e0l2t0l2u68066u5t5g763a3245604a0j2u2v3m29492o243s1o073h2r5f1a">elseif :</div></div><div data-level="1" style="color: darkblue;">print("The value in numList are not equal to alphaList")</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="sort">
+	<div>您正在建立一個Python指令碼以評估文字輸入並檢查是否有大寫和小寫。</div>
+	<div>請問您應該依序使用哪四個程式碼片段來開發解決方案?</div>
+	<div>請將四個程式碼片段按照正確順序排列。</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1c4g3d1n4u3170725k38134n7f5u1f4t1f1k2k0s6v5f0s020f7a125i78353t17">
+		<div data-level="0">name = input('Enter your name: ')</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2e1u0a4h7h2d1b3k1c4a6t0b605h6n4834557k1r3h1q3410784l0o2v061d1s2t">
+		<div data-level="0">else:</div>
+		<div data-level="1">print(name, 'is mixed case.')</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="280v3s1s607e2d722s584f7g0g294m2v7g1h2l7j2i62677p1h766l176s556u2j">
+		<div data-level="0">elif name.upper() == name:</div>
+		<div data-level="1">print(name, 'is all upper case.')</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2b3j7314540r2f1g4d491g1v4j1r550136701i6a07186u152t1g253k2g2k1476">
+		<div data-level="0">else:</div>
+		<div data-level="1">print(name, 'is upper case.')</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="782c2e5o4c762s4k5p4q152g7n1g753a614j2m745j4h75744v6e01795f176g1b">
+		<div data-level="0">else:</div>
+		<div data-level="1">print(name, 'is lower case.')</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3m594h0k6b3c2g7l5c5o12621s78491f3a571n4s7a6e071d031t0n164e5a4r31">
+		<div data-level="0">if name.lower() == name:</div>
+		<div data-level="1">print(name, 'is all lower case.')</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	請問下列程式碼會列印幾行輸出?
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">products = 2</div><div data-level="0">n = 5</div><div data-level="0" style="color: blue;">while (n != 0) :</div><div data-level="1">product *= n</div><div data-level="1" style="color: darkblue;">print(product, n)</div><div data-level="1">n -= 1</div><div data-level="1" style="color: blue;">if n == 3 : break</div></div>
+	<div class="bar">
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0h0u2i6p7k2j4c6u745k282764480f7p5j546e53381d157s505q5e5b7j1f031g">1</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="794q097h7o393e54506l1f5j3267643q1i057n6934231t7j7545410e6j695v28">3</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0u293a1t5j7h2v2p7l5u7p7o0t2c7b1c3031654a79293a1g5e2g3l01494v6o7i">2</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="430b290b2n7a580v6b4g42360j25424v5f511f5v0i4b427g146t646g4m5l6k7j">5</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在建立一套適用於小學孩童的互動式乘法表助手程式。</div>
+	<div>您需要完成一個名為times_tables的函式,以計算並顯示所有2到12的乘法表組合。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkgreen;"># Displays times tables 2 - 12</div><div data-level="0" style="color: red;">def times_tables():</div><div data-level="1" style="color: blue;"><div class="fxl">for col in <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="210m3m69291r5m7h5t360v0s1t201e3v427i5g4n6d0h3l4r2g0331330s2i1u7i">range(2,12,1)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7733583i6p2a124l4b60023n47602l0k2u150i4a6h001o354b312a27386q0u4h">range(2,13)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5u0j0h12613e122r38356u3p2e7c5m7s4h7p485j670t2c2d3n6q6s19094m7s56">range(13)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1v6l2q1u0e7t6i4569783a6e01172j2o0o565t706f7u584v5e7b1d4g156m6j1e">range(12)</div></div> :</div></div><div data-level="2" style="color: blue;"><div class="fxl">for row in <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5u0j0h12613e122r38356u3p2e7c5m7s4h7p485j670t2c2d3n6q6s19094m7s56">range(13)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1v6l2q1u0e7t6i4569783a6e01172j2o0o565t706f7u584v5e7b1d4g156m6j1e">range(12)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7733583i6p2a124l4b60023n47602l0k2u150i4a6h001o354b312a27386q0u4h">range(2,13)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="210m3m69291r5m7h5t360v0s1t201e3v427i5g4n6d0h3l4r2g0331330s2i1u7i">range(2,12,1)</div></div> :</div></div><div data-level="3" style="color: darkblue;">print(row * col, end = " ")</div><div data-level="2" style="color: darkblue;">print()</div><br><div data-level="0" style="color: darkgreen;"># main</div><div data-level="0">times_tables()</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫一個 Python 程式來驗證員工識別碼</div>
+	<ul>
+		<li>識別碼的格式必須是 ddd-dd-dddd, 而且只能包含數字和虛線</li>
+		<li>如果格式正確,此程式必須列印 True</li>
+		<li>如果格式不正確,則列印 False</li>
+	</ul>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6d0570112i4939095u2f2p073q3v12553i2r3o2v5a1f1d5252700v522g207i7n">employee_number =""</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0h487i3h4j5s1l4b3j293r0r0l0f785s5m311c6g2c1m6n7l45764f3d3m7i5b68">employee_number ="123"</div></div><div data-level="0">parts=""</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0u3j341n6m3n7e3r3m214v2a6n12727k3s4b601c7l6d1v0g177e0s2m1u2a2e73">while employee_number !="123"</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="113l0r5g1b4a6j5a15777o025v4m207f5m0a1l7r3q604i1l6j1n1c142q005f3b">while employee_number !=""</div></div><div data-level="1"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3q1v0c5o156f3m5k557k746801490m6v0c5g084d27552o274r1h726j796s6715">vaild = False</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k18305v6a675147675n5g0g736q325a4m1g026b384f31394h120e682b4m3417">vaild = True</div></div></div><div data-level="1">employee_number = input("Enter employee number (ddd-dd-dddd) ('123' to quit): ")</div><div data-level="1">parts = employee_number.split('-')</div><div data-level="1" style="color: blue;">if len(parts) == 3:</div><div data-level="2" style="color: blue;">if len(parts[0]) == 3 and len(parts[1]) == 2 and len(parts[2]) == 4 :</div><div data-level="3" style="color: blue;">if parts[0].isdigit() and parts[1].isdigit() and parts[2].isdigit() :</div><div data-level="4"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1a082o6q4j2o1n5o0s5i5c417h6a0r6v360q2v5b60516s1v4q1r2a7d1i7e3p6j">vaild = True</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6p25430g0u5g0h39321h655p2r5u5d7m2q60547m1d341c001k7v585n3b5o5v1a">vaild = False</div></div></div><div data-level="1" style="color: darkblue;">print(valid)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫程式碼以使用星號建立E字形。</div>
+	<div>您需要列印五行程式碼,其中第一行、第三行和第五行各有四個星號,而第二行和第四行各有一個星號。如下所示。</div>
+	<div>****</div><div>*</div><div>****</div><div>*</div><div>****</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">result_str=""</div><div class="fxl" style="color: blue;">for row in range(1,<div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="794q097h7o393e54506l1f5j3267643q1i057n6934231t7j7545410e6j695v28">3</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="595843655j1k59033k5f5c302q425a7v0t3b7a580c2j6g301m362e2h190l2g3a">4</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="084v456c397c647b482p7r56010j59140h7d367p2p1p1o6a186h5h353t3b212i">6</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="430b290b2n7a580v6b4g42360j25424v5f511f5v0i4b427g146t646g4m5l6k7j">5</div></div>) :</div><div data-level="1" style="color: blue;"><div class="fxl">for column in range(1,<div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="595843655j1k59033k5f5c302q425a7v0t3b7a580c2j6g301m362e2h190l2g3a">4</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="794q097h7o393e54506l1f5j3267643q1i057n6934231t7j7545410e6j695v28">3</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="475d1f4f3f701o6a747k3461217o6n0964001e0u3l787r554b1b0m5t68214n49">5</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1t1f0o0f2b595u3a437q7j5g271r7q0b4t7q5f2t207e695p5i4n7n0s4a3a2d48">6</div></div>) :</div></div><div data-level="2" style="color: blue;">if (row==1 or row==3 or row==5) :</div><div data-level="3">result_str=result_str+"*"</div><div data-level="2" style="color: blue;">elif column==1 :</div><div data-level="3">result_str=result_str+"*"</div><div data-level="1">result_str=result_str+"\n"</div><div data-level="0" style="color: darkblue;">print(result_str)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在為某間線上產品配銷公司開發一個Python程式。</div>
+	<div>此程式必須逐一查看產品清單(productIdList),然後在找到特定產品識別碼時逸出。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">productIdList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</div><div data-level="0">index = 0</div><div class="fxl" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k1u6e4p0b38770o0e0e54646j496f367d78546m6r7m7b3n3v0h1t4d234e3v7h">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6q6p4g2a2a763s7r5h2b03322d0s694o056i5s3i1t7p331g6a7i4b4f2l0h4t1q">while</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div></div> (index &lt; 10) :</div><div data-level="1" style="color: darkblue;">print(productIdList[index])</div><div data-level="1" style="color: blue;">if productIdList[index] == 6 :</div><div data-level="2" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4h33775r41491l6d05622u235j3q2e4j11691s36022o077h24253f15721l2i1e">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3v4m5q0o1l1321243m2f4m0u56202j2c1b0q052i592g1b3c7u3h7l2j1i2n445d">while</div></div></div><div data-level="1" style="color: blue;">else :</div><div data-level="2"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3u0e5f680k347p6b0a5d6m2v5j135f6e3e0v722e2u1h06103q4m2c185s480c70">continue</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="421v2q552j6n623l1g3s5i453c7g1e3m496r3a4u1i4r4f6f434r583k763c0f20">index = 1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5f5l4m1i04140p1m7f6j0n6t694n104549513976385r5r5o5g054m4j712e6a66">index += 1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k1u6e4p0b38770o0e0e54646j496f367d78546m6r7m7b3n3v0h1t4d234e3v7h">break</div></div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在建立一個Python程式,讓使用者猜測1到10之間的數字。使用者最多可以猜三次。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: brown;">from random import randint</div><div data-level="0">target = randint(1, 10)</div><div data-level="0">chance = 1</div><div data-level="0" style="color: darkblue;">print("Guess an integer from 1 to 10. You will have 3 chances. ")</div><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p3i2l28060f294t3g7d2v681j612a5a3e6p5e220v15195a5r5c7l3g4g33194r">chance += 1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="764c4s4a6k152p363u3i7d0t67371f60616o2o4765035s4v3f230g5l3q045j47">while chance &lt;= 3 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r4p1b7p4b195p4454596u2c4c3l4r3d2o3d0k4j644i1p390l576p524p3h0l3v">pass</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7p7h2c2c2s1r5459343a0a4v5b0e2g6h25355a5k7c094b4d3n166j3q7t413m5h">chance = 2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k1u6e4p0b38770o0e0e54646j496f367d78546m6r7m7b3n3v0h1t4d234e3v7h">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t3e707u3u4p6n1c2e59223l2l593m2h6k466k6b477756257l3e2k11014m5t44">while chance &lt; 3 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6b344u007j4j6e3n6j5o7t4p7o6l7j2e4r7m7g5i1b6a0l0c2n0d5p043i233g15">while chance &lt; 3</div></div><div data-level="1">guess = int(input("Guess an integer: "))</div><div data-level="1" style="color: blue;">if guess &gt; target :</div><div data-level="2" style="color: darkblue;">print("Guess is too high")</div><div data-level="1" style="color: blue;">elif guess &lt; target :</div><div data-level="2" style="color: darkblue;">print("Guess is too low")</div><div data-level="1" style="color: blue;">else :</div><div data-level="2" style="color: darkblue;">print("Guess is just right!")</div><div data-level="2"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6u0k0u1o7v414u2g0m6l254l7q223p6p7g1c767o501e400j710v4e7v5o6i7f06">while chance &lt;= 3 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r4p1b7p4b195p4454596u2c4c3l4r3d2o3d0k4j644i1p390l576p524p3h0l3v">pass</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0p3i2l28060f294t3g7d2v681j612a5a3e6p5e220v15195a5r5c7l3g4g33194r">chance += 1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7p7h2c2c2s1r5459343a0a4v5b0e2g6h25355a5k7c094b4d3n166j3q7t413m5h">chance = 2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4h33775r41491l6d05622u235j3q2e4j11691s36022o077h24253f15721l2i1e">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6b344u007j4j6e3n6j5o7t4p7o6l7j2e4r7m7g5i1b6a0l0c2n0d5p043i233g15">while chance &lt; 3</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t3e707u3u4p6n1c2e59223l2l593m2h6k466k6b477756257l3e2k11014m5t44">while chance &lt; 3 :</div></div></div><div data-level="1"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t3e707u3u4p6n1c2e59223l2l593m2h6k466k6b477756257l3e2k11014m5t44">while chance &lt; 3 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6b344u007j4j6e3n6j5o7t4p7o6l7j2e4r7m7g5i1b6a0l0c2n0d5p043i233g15">while chance &lt; 3</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6u0k0u1o7v414u2g0m6l254l7q223p6p7g1c767o501e400j710v4e7v5o6i7f06">while chance &lt;= 3 :</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2r4p1b7p4b195p4454596u2c4c3l4r3d2o3d0k4j644i1p390l576p524p3h0l3v">pass</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7p7h2c2c2s1r5459343a0a4v5b0e2g6h25355a5k7c094b4d3n166j3q7t413m5h">chance = 2</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k1u6e4p0b38770o0e0e54646j496f367d78546m6r7m7b3n3v0h1t4d234e3v7h">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4d3u6q72231950367i5l4l153a027c124c4v5u23026p713b433u3e185a093r44">chance += 1</div></div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫符合下列需求的程式碼:<ul>
+		<li>允許使用者不斷輸入字詞。</li>
+		<li>輸出每個字詞的字元數。</li>
+	</ul></div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">x = "Hello World"</div><div class="fxl" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6q6p4g2a2a763s7r5h2b03322d0s694o056i5s3i1t7p331g6a7i4b4f2l0h4t1q">while</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div></div> x != "QUIT" :</div><div data-level="1">num = 0</div><div data-level="1" style="color: blue;"><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3v4m5q0o1l1321243m2f4m0u56202j2c1b0q052i592g1b3c7u3h7l2j1i2n445d">while</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="751c4c4s4k0479645o2p5a1o7b1i413n6q3n0o45625v287l0b7h4d4r5j44016m">for</div></div> char <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5h5q342j2c2g6d51696q6e0q1b6p4u7u1j252k3t454l750a536c5s0a1q4m607n">or</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="160r767j4j3t4u1g1f7f3o1v7n270d672s3t02270f0n7s1000420u3a5v3r4802">not</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="55132g3h326u642n6s39214v68324h7v0s3r6a251a5t7q1r1q5g28533h164v04">in</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7b2j6a541l6t0d2q3536562r2h467t2d3b4n1v3a3436763q73320t3a6f327a40">and</div></div> x :</div></div><div data-level="2">num += 1</div><div data-level="1" style="color: darkblue;">print(num)</div><div data-level="1">x = input("Enter a new word or QUIT to exit: ")</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>某間公司決定要發獎金給每年所得低於 150,000 美元的所有員工。</div>
+	<div>下列公式會根據基本薪資和固定獎金套用至每位員工 :</div>
+	<div class="ac">新的薪資 = 目前薪資x103%+500美元獎金</div>
+	<div>您撰寫了程式碼,將員工薪資讀取到名為 salary_list 的變數中。</div>
+	<div>您需要完成針對每位合格員工薪資套用加薪公式的程式碼。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkgreen;"># Each salary in the list is updated based on increase. Employees making</div><div data-level="0" style="color: darkgreen;"># $150,000 or more will not get a raise.</div><div data-level="0" style="color: darkgreen;"># Salary list is populated from employee database, code not shown.</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7j7t3p2s134o3d6t617s6d5k5c7u5o7j1529567475273c7j697c6t723l0p005l">for index in range(len(salary_list)):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0e306o4e3j534t4e03400f7k483a5o764d34496i1k7p1p0c3q7g3n5v124p685k">for index in salary_list:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="191a350h0b457p4t190v1272263n6p0a7m6p7g7l7o3k087b02772t7p4s7c1q5u">for index in range(len(salary_list)+1):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="717e0q4m49194e4q1u6b2e7o0o5q003h273r2h560k423n485c4d545d56297v2l">for index in range(len(salary_list)-1):</div></div><div data-level="1" style="color: blue;">if salary_list[index] &gt;= 150000 :</div><div data-level="2"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0k1u6e4p0b38770o0e0e54646j496f367d78546m6r7m7b3n3v0h1t4d234e3v7h">break</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5e1f0c5f4b0h7u101l3b565l485n3l5k0l752d4r1c3c555m1h1q7u4s7d3i5r1e">end</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="350p7s1b6o086a4j360f2k5u204p792g2j2t560l306j2a385p2e7a6c2r7d3b0f">continue</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j62263l1n1q3017252s37522m3219070d0p3e50102j4l0l1t3u4a6j7l7v3e11">exit()</div></div></div><div data-level="1">salary_list[index] = (salary_list[index] *1.03) + 500</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>某間出版公司需要設法找出他們出版物中特定字母的數目,以便保持良好的平衡。</div>
+	<div>似乎一直有讀者在抱怨字母e的使用次數過多。您需要建立一個符合需求的函式。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkgreen;"># Function accepts list of words from a file</div><div data-level="0" style="color: darkgreen;">#	 and letter to search for.</div><div data-level="0" style="color: darkgreen;"># Returns count of a particular letter in that list.</div><div data-level="0" style="color: red;">def count_letter(letter, word_list):</div><div data-level="1">count = 0</div><div data-level="1" style="color: blue;"><div class="fxl">for <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5t2a5v4v5p0m3767307h6k2c4f6l2p07402h3l4p631h0e306a7l453k2p5l593i">word_list in word</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="507p4n425o5j242l1l06336f296e6f357109375o0c2i6t690l420h4t2i4j7q7u">word is word_list</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="534a3g581e6e0a36266s4g45714p1r121n017r5l50363p5c3o5s6r6l1e1c195c">word == word_list</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="426901794u227832220l7p5g3h2p1c3c5q504s7e3b3k3t5q7l053t4h097c3548">word in word_list</div></div> :</div></div><div data-level="2" style="color: blue;"><div class="fxl">if <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="247j7h5r7m6e2k341q5h7t0u76012t6g357a5s2k2s7u597a3i2m595j6q1d1s5r">word is letter</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6h51585v624i3f5u0n227j290v38481f1r5i2c211n5e3p5m5t4f683n3m305i2j">letter is word</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="571g661b2c2s4u504s2c6i7g1u0b7p6s4f6d543v5v0k6g2s4t414u6e0a0v5t4n">word in letter</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1l6s105e73727c1k201u734o2v63173v7k2p0r1i756r1b085659304q0n6d5q5n">letter in word</div></div> :</div></div><div data-level="3">count += 1</div><div data-level="1">return count</div><br><div data-level="0">word_list = []</div><div data-level="0" style="color: darkgreen;"># word_list is populated from a file. Code not shown.</div><div data-level="0">letter = input("which letter would you like to count")</div><div data-level="0">letter_count = count_letter(letter, word_list)</div><div data-level="0" style="color: darkblue;">print("There are: ", letter_count, "instances of " + letter)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>某位同事撰寫了一個程式來輸入名稱至資料庫中。</div>
+	<div>然而,此程式卻將每個名稱中的字母前後顛倒。</div>
+	<div>您需要撰寫一個Python函式來按照正確順序輸出名稱中的字元。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0" style="color: darkgreen;"># Function reverses characters in a string.</div><div data-level="0" style="color: darkgreen;"># return new string in reversed order.</div><div data-level="0" style="color: red;">def reverse_name(backward_name):</div><div data-level="1" style="color: blue;">forward_name = ""</div><div data-level="1"><div class="fxl">length = <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="234u4s47331f0m304k5p4c4a6o3304545f617n0g7s7u4i7i4o7f3p6r7l2k0p47">range(len(backward_name)-1,-1,-1)</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5e1r772l2a5b234a716g0n1368072b2t1b266l5n5l7s0e45137t5t355o62127u">backward_name:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5m7n023s1t6v5f712c6k4f532l2h6o1p0u5i4p397d770b2n6d6t3m1p332c5j4g">len(backward_name)-1</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="546k2v2s5m495b0c3n5029080s2m6k0n3v264708084g6g4t6f653p230m3b571s">range(0,len(backward_name),-1)</div></div></div></div><br><div data-level="1" style="color: blue;">while length &gt;= 0 :</div><div data-level="2" style="color: blue;"><div class="fxl">forward_name += <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="450c1v6k565j53472a2u4m2q3n2e35235e1t7p3d2f5k6k402t0n2m7i4a52133n">backward_name[index]</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1i3f2d7i4l7p5t5a32403h0a2i0t6m6n3c4c4p61532d5c2o790l4n6v642s7i3l">backward_name[len(backward_name)-len(forward_name)]</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2s6t2u2k6n0g76260d4v1m5s7c526j464b4r046i6o7i6g727v3r5v2i5g3a4b0s">backward_name[length+1]</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1c7m2k724k067i1a075s1o0h6k5t322t0e3m4t1l6b4j6c1m0v4d01510e3c6f1t">backward_name[length]</div></div></div></div><div data-level="2">length = length-1</div><div data-level="1">return forward_name</div><br><div data-level="0" style="color: darkblue;">print(reverse_name("nohtyp"))</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您評估下列程式碼時發現錯誤。加上行號僅為參考之用。</div>
+	<div>您必須更正下列程式碼。</div>
+	<div>請評估這段程式碼,然後從每個下拉式清單中選取正確的選項以回答問題。</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</div><div data-level="0">index = 0</div><div style="color: blue;" class="mod_quiz" data-qtype="s"><div><s>while (index &lt;10)</s></div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="702e300r7t1r3f763r354c2835327f770b1p257d6n4q760g1g164e1c2m2r1d34">while [index&lt;5]</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7e7j4r46475p2m531o661h682c7m7l6h6g577h3j382d2h0074357c7p3v437n5d">while (index&lt;10):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2k4f4l0l114n064v7n561d0e2a0j013q6u6l7076575r0q1q5c7u5u4r17594927">while [index&lt;10]</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3067597v4f3u075g50020a246i7f7n1d2119565570797a403f196m1d1n1h730i">while (index&lt;5)</div></div><div data-level="1" style="color: darkblue;"><div>print(numbers[index])</div></div><div data-level="1" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div><s>if numbers(index) = 6</s></div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4f771n7s347s2u6s192v48474f5l2o1g63067j062d06487d2d115i4a1a5i385p">if numbers(index)!=6</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0m6p723f3u2a685c73470h490303251a702c3k4a6n1q1s1i356t326a1g4e1c01">if numbers[index]==6</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6k7539283c0a0c7j4n021p680f7g7r624l7k2d0m3b552p1k0a2u6i153b6k137s">if numbers[index]==6:</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7h3f06013v2p296g2g0a7k073l6u08076j1f13617c2i1n6v241g6e6i1a623m53">if numbers(index)=6:</div></div></div><div data-level="2">break</div><div data-level="1" style="color: blue;">else :</div><div data-level="2">index += 1</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>某間公司要求您為造成薪資問題的部分程式碼偵錯。</div>
+	<div>他們要求您找出薪資錯誤的來源。已經宣告的變數如下:</div>
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">employee_pay = [15000, 120000, 35000, 45000]</div><div data-level="0">count = 0</div><div data-level="0">sum = 0</div><br><div data-level="0" style="color: darkgreen;"># 下列程式碼有兩個錯誤需要修正 :</div><div class="fxl" style="color: blue;">for index in range<div class="mod_quiz" data-qtype="s"><div><s>(0, len(employee_pay)-1):</s></div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5i1i0u1u0v0i58095g0b79355p5g4k0m3i4j6o4n7m0n5g320d0n2b3u3k253q40">(len(employee_pay)):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3n456c6q4v581e2r7e6l490v2j2r44734d137u6t1k7k2h4k6k2n7u727g3p3e2p">(len(employee_pay)+1):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t41657n7i1r28655c7047375l6u6g7u7d6q45767c7g275937105i2n7c0t6m2g">(size(employee_pay)):</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2c6i395g1f2v5a455s60234o1k1l0r5v4b4d1o3u7e3h2b1m04523g49477v2o1i">(size(employee_pay)-1):</div></div></div><div data-level="1">count += 1</div><div data-level="1">sum += employee_pay[index]</div><div data-level="1"><div class="fxl">average = <div class="mod_quiz" data-qtype="s"><div><s>sum//count</s></div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1h5s394i2b415m48637i3b2a7l2b2v2j186c5k0h2867062m2h6h665n1k7e7434">sum**count</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0b604q4c442836127h582s723s107j17755p4a74142c2f547s174d3r387r380p">sum/count</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0b6873526h0p4500665l0u6l5l0j142r635507506g662a091l0g5u386a54100r">sum*count</div></div></div></div><br><div data-level="0" style="color: darkblue;">print("The total payroll is:", sum)</div><div data-level="0" style="color: darkblue;">print("The average salary is:", average)</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="sort">
+	<div>您正在建置一個Python程式來顯示2到100之間的所有質數(質數是指只有該數字本身和1能整除的任何數字)。</div>
+	<div>請依序點擊適當的程式碼片段選擇與排序程式碼。</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7h570i3m5v5948665g4e1f091s4l0e3t3t1b4s3h6g58272q7e1b6d6v78162c6g">
+		<div data-level="0">p=2</div>
+		<div data-level="0">while p &lt;=100 :</div>
+		<div data-level="1">is_prime = True</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3a0c360u61521t7v7m561g7h3c347v7d760p135g2a0g0v3r5c571s097017353m">
+		<div data-level="3">break</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5a7q1r5k5j4q3j7f7a3o7k5p4m145r771g1h1d2u03207c5d0g53090o5e2l0k2i">
+		<div data-level="0">p = 2</div>
+		<div data-level="0">is_prime = True</div>
+		<div data-level="0">while p &lt;= 100:</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1b524d2855471b6i74554h2u2l3i0q3t4v4p0n3e2h53022r1g2g7a130g5f7c1p">
+		<div data-level="3">continue</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2a4j0v726o7v0p4n5a7o2s1n2g4k4e3h6o5d4c5q582m4k224r2554385q3a7j28">
+		<div data-level="1">for i in range(2, p):</div>
+		<div data-level="2">if p % i == 0:</div>
+		<div data-level="3">is_prime = False</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5e541q1m6j02332e755c69201r2q6k7o3j036v023p224b1624703a070n6h1u53">
+		<div data-level="1">if is_prime == True:</div>
+		<div data-level="2">print(p)</div>
+	</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="552c5e4n7v7n037i2c49265s352u0p3r4069686p6i7r780a49213k7n1e7h1k1t">
+		<div data-level="1">p = p + 1</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	<div>您正在撰寫符合下列需求的程式碼:<ul>
+		<li>允許使用者不斷輸入字詞。</li>
+		<li>輸出每個字詞的字元數。</li>
+	</ul></div>
+	<div>請從每個下拉式清單中選取正確的選項以完成程式碼。</div>
+	<div>請注意:每一個答對的項目都能獲得部分分數。</div>
+
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">x = 'Hello World'</div><div class="fxl" style="color: blue;"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6q6p4g2a2a763s7r5h2b03322d0s694o056i5s3i1t7p331g6a7i4b4f2l0h4t1q">while</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0j1d6p6r263u7764556s4q282n2d4d0a1o5t2f7u4i2l5s7752483t7063396f5m">for</div></div> x != 'QUIT' :</div><div data-level="1">num = 0</div><div data-level="1" style="color: blue;"><div class="fxl"><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4k343c0o4t4p1q1l3e5g2333122b1p63141o1f274a0c2e5026396g357e470u76">if</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3v4m5q0o1l1321243m2f4m0u56202j2c1b0q052i592g1b3c7u3h7l2j1i2n445d">while</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="751c4c4s4k0479645o2p5a1o7b1i413n6q3n0o45625v287l0b7h4d4r5j44016m">for</div></div> char <div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5h5q342j2c2g6d51696q6e0q1b6p4u7u1j252k3t454l750a536c5s0a1q4m607n">or</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="160r767j4j3t4u1g1f7f3o1v7n270d672s3t02270f0n7s1000420u3a5v3r4802">not</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="55132g3h326u642n6s39214v68324h7v0s3r6a251a5t7q1r1q5g28533h164v04">in</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7b2j6a541l6t0d2q3536562r2h467t2d3b4n1v3a3436763q73320t3a6f327a40">and</div></div> x :</div></div><div data-level="2">num += 1</div><div data-level="2" style="color: darkblue;">print(num)</div><div data-level="2">x = input('Enter a new word or QUIT to exit: ')</div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="sort">
+	您正在撰寫一個必須執行下列工作的 Python 函式：
+	<ol>
+		<li>接受清單和字串做為參數。</li>
+		<li>在清單中搜尋字串。</li>
+		<li>如果字串存在清單中，則列印一則訊息，指出找到字串，然後停止逐一查看清單。</li>
+		<li>如果字串不在清單中，則列印一則訊息，指出找不到字串。</li>
+	</ol>
+	請問您應該按什麼順序排列程式碼片段以完成此函式 ?
+	<div data-level="0" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0n340o525r2i4h4m6k7i7d5l4u185b7u6b6i74260j1d4u1d522n7m6j6f666e7r">def search(items, term) :</div>
+	<div data-level="3" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="001q1h447j1p3j342t6s2j4t380d5079025d4c0j5k0e7a3e032b3p6t7c331n53">print("{0} was not found in the list.".format(term))</div>
+	<div data-level="2" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t4q067l406829073q2t297h7r6e1i631o2g324s4q2g5f7v2k544m0d05364r61">else :</div>
+	<div data-level="2" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="761q6c2628071f6c130t5b3s0h2q201j7h042n0l5e2j2m672t2i291p6c0q1n5l">if items[i] == term :</div>
+	<div data-level="3" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2s1v1b5d3e3g7911303v322s6f4q107h6m184o3c3t1o3i2k7n7i2t7s4c6s4874">print("{0} was found in the list.".format(term))</div>
+	<div data-level="1" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1c0h4v7c054b746v6b7q5o0v702a4n5s7l6e51722m4n3f442q4a35705g3b7v3n">for i in range(len(items)) :</div>
+	<div data-level="3" data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6n5t4s3u2e434b59085t5i230q0t34673p4t5k7o1i240q3s514a4l6u3t4k4t3f">break</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="m">
+	你為公司設計了一個 Python 應用程式，<br>
+	在 members 的清單中包含了 50 位會員的姓名，最後 5 名是 VIP 會員。<br>
+	你需要分割清單內容顯示除了 VIP 會員以外的一般會員，<hr>
+	你可以利用以下哪二個程式碼達成？
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3f0p095u1b507t381u691i2d3s3d5q2b1g2b230v5s0j7n7o656a7b785a714t0u">members [1 : -5]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="094a621e6q4i3477537d0l347t1n624n2n057b513u5k3f660o3e1g5h115o7f6c">members [-5 : 0]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4g0u4e4p6h437m7i3p291c1m3n48475c3543086k6u6l0f1c252d58365h350s7u">members [ : -5]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3c5h5728145r333317315k6o4d036960716l3b44615c6p5d7p3p22646m1a3s3t">members [0 : -5]</div>
+	<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2t4u6b2f2g304v0s65412b0b0t2c7m2f4a6q6u0l1g7a6u136i4e680q611c7u6j">members [1 : 5]</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您需要識別針對下列順序結構執行各種配量作業的結果:
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">alph = 'abcdefghijklmnopqrstuvwxyz'</div><div class="fxl"><span>alph[3:15] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3r6e7b1r2u6n7q2o2g0g0s690r4e6a3o57522r1972313u2a2p4r7i5t5j0m3f6b">defghijklmnop</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="036d5q57363008401a3s6k4t5a4s0i120r0o752k715i6u131o5j0u5j024r2h7c">pmjg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6u2r0k1n4d2m7h015k4t7p2d5h164h6m2m4u202o2b2969294p787q424a7l7c70">dgjm</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4t44580j0b01054o1a6s5c210p7j337h2k5q390e281t1m3967516l46580h4n4v">defghijklmno</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="570j7t0p012v1k7v61203o2u1a6u0s19116h604p1c3t690r41220h6677351f69">ponmlkjihgfe</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7t7v6b5b2t2k4q7f414870464r5h62431j2a305k622573592u0m044p5q41400i">zwtqnkheb</div></div></div><div class="fxl"><span>alph[3:15:3] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3r6e7b1r2u6n7q2o2g0g0s690r4e6a3o57522r1972313u2a2p4r7i5t5j0m3f6b">defghijklmnop</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="386p3b7b642g5i1b1472706u4c5e097f5f442c7m7p0t3k15546g505a3p1r2957">dgjm</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="036d5q57363008401a3s6k4t5a4s0i120r0o752k715i6u131o5j0u5j024r2h7c">pmjg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="570j7t0p012v1k7v61203o2u1a6u0s19116h604p1c3t690r41220h6677351f69">ponmlkjihgfe</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7t7v6b5b2t2k4q7f414870464r5h62431j2a305k622573592u0m044p5q41400i">zwtqnkheb</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6n2r3q0k1k304u255o2p780a6p2r7v2k0g6q6r2043664i1o252p454a2k0u541u">defghijklmno</div></div></div><div class="fxl"><span>alph[15:3:-3] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3r6e7b1r2u6n7q2o2g0g0s690r4e6a3o57522r1972313u2a2p4r7i5t5j0m3f6b">defghijklmnop</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2p0d2f4m03247v17567o3h051s3a1s5k204b7s0j275c2j4c6s0t6k4f1b6d6n7n">pmjg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6u2r0k1n4d2m7h015k4t7p2d5h164h6m2m4u202o2b2969294p787q424a7l7c70">dgjm</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7t7v6b5b2t2k4q7f414870464r5h62431j2a305k622573592u0m044p5q41400i">zwtqnkheb</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="570j7t0p012v1k7v61203o2u1a6u0s19116h604p1c3t690r41220h6677351f69">ponmlkjihgfe</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6n2r3q0k1k304u255o2p780a6p2r7v2k0g6q6r2043664i1o252p454a2k0u541u">defghijklmno</div></div></div><div class="fxl"><span>alph[::-3] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="036d5q57363008401a3s6k4t5a4s0i120r0o752k715i6u131o5j0u5j024r2h7c">pmjg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="5l3e0s364f1s155q5g313b6d2a7s2g720h7u2650527f2g1g1t5h3d7k300e3r2n">zwtqnkheb</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6u2r0k1n4d2m7h015k4t7p2d5h164h6m2m4u202o2b2969294p787q424a7l7c70">dgjm</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="570j7t0p012v1k7v61203o2u1a6u0s19116h604p1c3t690r41220h6677351f69">ponmlkjihgfe</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="6n2r3q0k1k304u255o2p780a6p2r7v2k0g6q6r2043664i1o252p454a2k0u541u">defghijklmno</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3r6e7b1r2u6n7q2o2g0g0s690r4e6a3o57522r1972313u2a2p4r7i5t5j0m3f6b">defghijklmnop</div></div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您需要識別針對下列順序結構執行各種配量作業的結果：
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">alph = 'abcdefghijklmnopqrstuvwxyz'</div><div class="fxl"><span>alph[3:6] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2h4g2u7i1g5f1m600v0f394q574u2g0b66562l575n174b4t7h3c535q4s140u64">abcdef</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="2p500b37672v094a3l2g2s0359273m395t572b2n513920427s180v276q777k41">def</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="575o70032s3q7f1l5r11490t0d463q051t0l7o6g6b521e2b345f4l7k536v1n12">cde</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3d2o520e4j5h3i492c0b6q7f2372130l6431597v52170q154g2q4j4e083u2u0d">cdef</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0r24710l5o4l11554m0h341q354t6v6c0p3u7f440o0t375h2d5e2l2n4v7r1v06">defg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7k4p1m7537413t1o2p6g2d152r6s2m3i716k3r2n545p4c311j4j5i0p4c2r7101">abcde</div></div></div><div class="fxl"><span>alph[:6] #→ </span><div class="mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="0r24710l5o4l11554m0h341q354t6v6c0p3u7f440o0t375h2d5e2l2n4v7r1v06">defg</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7k4p1m7537413t1o2p6g2d152r6s2m3i716k3r2n545p4c311j4j5i0p4c2r7101">abcde</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="4u2d67382k7g3i595h61602g7c6f3c7e65147203721k6d25740s3v6a191q025n">abcdef</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="30532b4p7t3q2m375h1n2b143s46787e060j2t3877161c6j5p5m5s3c4h7p2u57">def</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="3d2o520e4j5h3i492c0b6q7f2372130l6431597v52170q154g2q4j4e083u2u0d">cdef</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="575o70032s3q7f1l5r11490t0d463q051t0l7o6g6b521e2b345f4l7k536v1n12">cde</div></div></div></div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="s">
+	在下列的程式碼中：
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">slist = ["a", "b", "c", "d", "e", "f"]</div><div data-level="0" style="color: darkblue;">print("f" in slist)</div></div>
+	執行後會輸出列印的內容為？
+	<div class="bar">
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="476l1f1v690m6o14296e64016t4t5r7o3k2t2q5l2s3e7i75255b6o3e315k0e7d">True</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j63013l103j4r2358697e276i0t4m2i3i0p397a5d2f4b4p164q4f3s0k474h5c">False</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1t1f0o0f2b595u3a437q7j5g271r7q0b4t7q5f2t207e695p5i4n7n0s4a3a2d48">6</div>
+		<div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="430b290b2n7a580v6b4g42360j25424v5f511f5v0i4b427g146t646g4m5l6k7j">5</div>
+	</div>
+</div></section>
+<section><div class="mod_quiz" data-qtype="c">
+	您正在為公司開發一個Python應用程式。<br>
+	您撰寫了以下這段程式碼:
+	<div class="mod_code frame" style="padding: 4px 32px;"><div data-level="0">numList = [1, 2, 3, 4, 5]</div><div data-level="0">alphaList = ['a', 'b', 'c', 'd', 'e']</div><div data-level="0" style="color: darkblue;">print(numList is alphaList)</div><div data-level="0" style="color: darkgreen;"># 請問第一個 print 後面顯示的內容為何? </div><div class="bar mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7p4l672i2l6h6p121q1u5p393s47285v473h5f3l0g6u0h16301i282o4h3r1s0q">True</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7a086i531n140o0a16120n015u323u3j6l7t733d0j6n5j4919424l732k5d2l3s">False</div></div><div data-level="0" style="color: darkblue;">print(numList == alphaList)</div><div data-level="0" style="color: darkgreen;"># 請問第二個 print 後面顯示的內容為何?</div><div class="bar mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7p4l672i2l6h6p121q1u5p393s47285v473h5f3l0g6u0h16301i282o4h3r1s0q">True</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="7a086i531n140o0a16120n015u323u3j6l7t733d0j6n5j4919424l732k5d2l3s">False</div></div><div data-level="0">numList = alphaList</div><div data-level="0" style="color: darkblue;">print(numList is alphaList)</div><div data-level="0" style="color: darkgreen;"># 請問第三個print後面顯示的內容為何?</div><div class="bar mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="476l1f1v690m6o14296e64016t4t5r7o3k2t2q5l2s3e7i75255b6o3e315k0e7d">True</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j63013l103j4r2358697e276i0t4m2i3i0p397a5d2f4b4p164q4f3s0k474h5c">False</div></div><div data-level="0" style="color: darkblue;">print(numList == alphaList)</div><div data-level="0" style="color: darkgreen;"># 請問第四個print後面顯示的內容為何?</div><div class="bar mod_quiz" data-qtype="s"><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="1j63013l103j4r2358697e276i0t4m2i3i0p397a5d2f4b4p164q4f3s0k474h5c">False</div><div data-h="call:quiz:answer" class="mod_quiz_answer" data-kh="476l1f1v690m6o14296e64016t4t5r7o3k2t2q5l2s3e7i75255b6o3e315k0e7d">True</div></div></div>
+</div></section>
+
+<section>
+	<h2>批改</h2>
+	<script>
+async function test () {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list')) {
+		const e = Apps.E(document.getElementById('CBoard'));
+		const d = D.D.list.reduce((r,v)=>{
+			const s=v.split('_');
+			if (!r[s[0]]) r[s[0]]={'max':v,'all':[]};
+			if (r[s[0]].max < v) r[s[0]].max = v;
+			r[s[0]].all.push(v);
+			return r;
+		}, {});
+		console.log(d);
+		e.put(d);
+	}
+}
+async function test2 (btn) {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list?name='+btn.textContent)) {
+		console.log(D.D);
+	}
+}
+	</script>
+	<div id='CBoard'>
+		<ul data-c='kvs:'><li>
+			<span data-v='text:_k_'></span>
+			<span class='blue' data-v='text:_v_.max' onclick='test2(this)'></span>
+		</li></ul>
+	</div>
+	<button onclick='test()'>TEST</button>
+</section>
+
+</body></html>

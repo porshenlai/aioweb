@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script src="/App/page.js"></script></head><body style='opacity:0'>
+<!--http://localhost:8080/QZTest.html?quiz_secret=11513938-->
+
+<section>
+	<div class='ac h1'>考試批改</div><hr/>
+	<script>
+async function test () {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list')) {
+		const e = Apps.E(document.getElementById('CBoard'));
+		const d = D.D.list.reduce((r,v)=>{
+			const s=v.split('_');
+			if (!r[s[0]]) r[s[0]]={'max':v,'all':[]};
+			if (r[s[0]].max < v) r[s[0]].max = v;
+			r[s[0]].all.push(v);
+			return r;
+		}, {});
+		console.log(d);
+		e.put(d);
+	}
+}
+async function test2 (btn) {
+	const D = Apps.D({});
+	if (await D.fetch('__API__/wks/list?name='+btn.textContent)) {
+		console.log(D.D);
+	}
+
+}
+	</script>
+	<div id='CBoard'>
+		<ul data-c='kvs:'><li>
+			<span data-v='text:_k_'></span>
+			<span class='blue' data-v='text:_v_.max' onclick='test2(this)'></span>
+		</li></ul>
+	</div>
+	<button onclick='test()'>TEST</button>
+</section>
+
+</body></html>
