@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
-import os, json
-from sys import argv, exit
+import os, sys, json
 from datetime import datetime
 from importlib import import_module
 from asyncio import get_running_loop
 from aiohttp import web, ClientSession as aSession
 from aiofiles import open as aopen
 from aiohttp import web
+
+sys.path.insert(0,os.path.dirname(__file__))
+from ModuleTools import ensure_modules
 
 class FSMask :
 	def __init__ (self, root) :
@@ -196,6 +198,7 @@ if __name__ == "__main__":
 	([ Usage ])
 		apipfx=... docs=... host=... port=...
 	"""
+	ensure_modules('aiohttp','aiofiles','aiohttp_cors')
 	try :
 		env={
 			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')).replace('\\','/'),
@@ -209,7 +212,7 @@ if __name__ == "__main__":
 		}
 		with open(os.path.join(env['awd'],'etc/aioweb.json')) as fo :
 			args.update(json.loads(fo.read().format(**env)));
-		for a in argv[1:]:
+		for a in sys.argv[1:]:
 			parts = a.split('=')
 			if len(parts) == 1:
 				if os.path.isfile(parts[0]):
