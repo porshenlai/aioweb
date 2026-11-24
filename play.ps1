@@ -1,24 +1,14 @@
 $ErrorActionPreference = "Stop"
 
 $ROOT = $PSScriptRoot
-$VENV = Join-Path $ROOT "venv"
-$PY = Join-Path $VENV "Scripts\python.exe"
-$THPY = "D:\apps\thonny\python.exe"
-
-# Note: The original logic falls back to creation only if $THPY is missing.
-# If you intended to create the venv when $THPY exists, change '!Test-Path $THPY' to 'Test-Path $THPY'.
-if (-not (Test-Path -Path $PY -PathType Leaf)) {
-    if (Test-Path -Path $THPY -PathType Leaf) {
-        Write-Host "Install from thonny"
-        & $THPY -m venv $VENV
-        & $PY -m pip install --upgrade pip aiohttp aiohttp_cors aiofiles
-    }
-}
+$PY = Join-Path $ROOT "python\python.exe"
+$URL = "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-amd64.zip"
 
 if (-not (Test-Path -Path $PY -PathType Leaf)) {
-    Write-Host "$PY not found"
-    exit 1
+	if (-not (Test-Path -Path python.zip -PathType Leaf)) {
+		irm -OutFile python.zip $URL
+	}
+	expand-Archive python.zip -DestinationPath python
+	$PTH = Get-ChildItem -Path "python/python*._pth"
+	Add-Content -Path $PTH -Value "import site"
 }
-
-$APP = Join-Path $ROOT "app\aioweb.py"
-& $PY $APP @args

@@ -1,10 +1,14 @@
 #mod# langchain_ollama
 
-from os import makedirs
+import sys, os
 from asyncio import create_task
+from uuid import uuid4
+
+sys.path.insert(0,os.path.dirname(__file__))
+from ModuleTools import ensure_modules
+ensure_modules('aiohttp','langchain_ollama')
 from aiohttp.web import Request, Response, json_response
 from langchain_ollama import ChatOllama
-from uuid import uuid4
 
 class WBModule():
 	def __init__(self, model, base_url):

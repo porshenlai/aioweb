@@ -4,12 +4,14 @@ import os, sys, json
 from datetime import datetime
 from importlib import import_module
 from asyncio import get_running_loop
-from aiohttp import web, ClientSession as aSession
-from aiofiles import open as aopen
-from aiohttp import web
 
 sys.path.insert(0,os.path.dirname(__file__))
 from ModuleTools import ensure_modules
+
+ensure_modules('aiohttp','aiofiles','aiohttp_cors')
+from aiohttp import web, ClientSession as aSession
+from aiofiles import open as aopen
+from aiohttp_cors import setup, ResourceOptions
 
 class FSMask :
 	def __init__ (self, root) :
@@ -23,8 +25,15 @@ class FSMask :
 
 	def resolve (self, path) :
 		for k in self.Map :
-			if path.startswith(f'{k}/') : return os.path.normpath(os.path.join(self.Map[k],path[len(k)+1:]))
-		return os.path.normpath(os.path.join(self.Root,path))
+			if path.startswith(f'{k}/') :
+				return os.path.normpath(os.path.join(
+					self.Map[k],
+					path[len(k)+1:]
+				))
+		return os.path.normpath(os.path.join(
+			self.Root,
+			path
+		))
 
 class MyWebService :
 	@property
@@ -37,7 +46,7 @@ class MyWebService :
 			"pdf": "application/pdf",
 			"png": "image/png",
 			"svg": "image/svg+xml",
-			"*":"binary/octet-stream"
+			"*": "binary/octet-stream"
 		}
 
 	def __init__ (self, args) :
@@ -64,18 +73,15 @@ class MyWebService :
 			if 'fsmap' in args :
 				self.FSMask.configure(args['fsmap'])
 			self.app.router.add_get("/{tail:.*}", self.handle_static)
-			# system service
 			self.install(self)
 
-			"""
-			layout:{
-				"aioweb_wks":["WKStorage"]
-				"aioweb_user":["mods"]
-			}
-			"""
 			if 'layout' in args :
 				for mn in args['layout'] :
-					self.install(import_module(mn).WBModule, args=args['layout'][mn], name=mn[7:])
+					self.install(
+						import_module(mn).WBModule,
+						args = args['layout'][mn],
+						name = mn[7:]
+					)
 
 		except Exception as x:
 			print(f"Exception: {str(x):s}")
@@ -147,29 +153,36 @@ class MyWebService :
 						ct = self.MIME[ct[ct.rfind('.')+1:]]
 					except :
 						ct = self.MIME['*']
-					return web.Response(body = await f.read(), content_type = ct)
+					return web.Response(
+						body = await f.read(),
+						content_type = ct
+					)
 			except Exception as X:
 				print("Exception:",X)
-		return web.Response(text="404: Not Found", status=404)
+		return web.Response(
+			text = "404: Not Found",
+			status = 404
+		)
 
 	async def handle_static (self, request) :
 		rel_path = request.match_info['tail']
 		if rel_path and os.path.basename(rel_path)[0] == '.' :
-			return web.Response(text="404: Not Found", status=404)
-		full_path = self.FSMask.resolve(rel_path);
-		if os.path.isdir(full_path):
+			return web.Response(
+				text = "404: Not Found",
+				status = 404
+			)
+		full_path = self.FSMask.resolve(rel_path)
+		if os.path.isdir(full_path) :
 			full_path = os.path.join(full_path, "index.html")
 		return await self._send_file(full_path)
 
 	def config_cors (self, allow='*') :
-		"""啟用 CORS 支援 (簡易版)"""
 		try:
-			from aiohttp_cors import setup, ResourceOptions
 			cors = setup(self.app, defaults={
 				"*": ResourceOptions(
 					allow_credentials=True,
-					expose_headers=allow,
 					allow_headers=allow,
+					expose_headers=allow,
 				)
 			})
 			for route in list(self.app.router.routes()):
@@ -198,7 +211,7 @@ if __name__ == "__main__":
 	([ Usage ])
 		apipfx=... docs=... host=... port=...
 	"""
-	ensure_modules('aiohttp','aiofiles','aiohttp_cors')
+
 	try :
 		env={
 			"awd":os.path.realpath(os.path.join(os.path.dirname(__file__),'..')).replace('\\','/'),
