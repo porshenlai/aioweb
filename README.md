@@ -6,4 +6,5 @@ Web Server based on Python Asynchornouse I/O Modules
 	* ./play.sh
 
 * POWERSHELL:
+	* Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 	* play.ps1
