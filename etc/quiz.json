@@ -1,0 +1,12 @@
+{{
+	"host": "0.0.0.0",
+	"port": 8080,
+	"apipfx": "/__API__/",
+	"docs": ["{cwd}","{awd}/docs/quiz"],
+	"layout": {{
+		"aioweb_wks":["{awd}/mods/wks"]
+	}},
+	"#ssl_crt":"{awd}/etc/server.crt",
+	"#ssl_key":"{awd}/etc/server.key",
+	"cors": "*"
+}}

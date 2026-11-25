@@ -1,0 +1,15 @@
+{{
+	"host": "0.0.0.0",
+	"port": 8080,
+	"apipfx": "/__API__/",
+	"docs": ["{cwd}","{awd}/docs"],
+	"fsmap": {{
+		"github":"d:\\projects\\porshenlai.github.io"
+	}},
+	"layout": {{
+		"aioweb_user":["{awd}/mods"]
+	}},
+	"#ssl_crt":"{awd}/etc/server.crt",
+	"#ssl_key":"{awd}/etc/server.key",
+	"cors": "*"
+}}

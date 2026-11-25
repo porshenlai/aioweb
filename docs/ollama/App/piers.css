@@ -1,0 +1,50 @@
+:root {
+	--base-font-size:24px;
+	--base-margin:calc(var(--base-font-size) / 3);
+	--base-indent:var(--base-font-size);
+}
+* {
+	box-sizing:border-box;
+}
+html, body {
+	height:100%; margin:0;
+}
+body {
+	font-size:var(--base-font-size);
+	font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,Segoe UI,Arial;
+}
+
+.al { text-align:left; vertical-align:top; }
+.ac { text-align:center; vertical-align:middle; }
+.ar { text-align:right; vertical-align:bottom; }
+
+.fs144 { font-size:144%; font-weight:bolder; }
+.fs120 { font-size:120%; font-weight:bold; }
+.fs72 { font-size:72%; font-weight:normal; }
+.fs60 { font-size:60%; font-weight:normal; }
+
+.black { color:black; }
+.grey { color:grey; }
+.red { color:red; }
+.green { color:green; }
+.blue { color:blue; }
+.brown { color:brown; }
+.orange { color:orange; }
+.purple { color:purple; }
+.silver { color:silver; }
+.gold { color:gold; }
+
+._w_ { background:white; }
+._b_ { background:black; }
+
+.del { text-decoration:line-through; }
+.indent { padding-left:32px; }
+
+.hide,.disabled { display:none; }
+
+.fill,.full,.mask {
+	width:100%; height:100%; left:0; top:0;
+	margin:0; padding:0; overflow:hidden;
+}
+.fill { overflow-y:auto; }
+.mask { position:absolute; background-color:rgba(255,255,255,0.5); }

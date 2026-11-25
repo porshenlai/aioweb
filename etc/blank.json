@@ -8,8 +8,7 @@
 	}},
 	"layout": {{
 		"aioweb_wks":["{awd}/WKStorage"],
-		"aioweb_user":["{awd}/mods"],
-		"aioweb_ollama":["gemma4:latest","http://localhost:11434"]
+		"aioweb_user":["{awd}/mods"]
 	}},
 	"#ssl_crt":"{awd}/etc/server.crt",
 	"#ssl_key":"{awd}/etc/server.key",

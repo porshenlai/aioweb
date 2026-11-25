@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="/App/marked.min.js"></script>
+	<script src="/App/piers.js"></script>
+</head><body style='padding:1%'>
+<div>
+<div>
+	<div>
+		<textarea rows='6' style='width:100%;font-size:100%;'>妳好，很高興認識妳。</textarea>
+	</div>
+	<button style='float:right;font-size:100%;'>&dArr;</button>
+	<div id='Response' style='border:1px solid black; padding:8px;'>
+	</div>
+</div>
+<script>
+	const Apps=document.head.querySelector('script[src="/App/piers.js"]').value;
+	const root=document.currentScript.parentNode;
+	let btn=root.querySelector('button'),
+		text=root.querySelector('textarea'),
+		res=root.querySelector('#Response');
+	btn.addEventListener("click",async (event) => {
+		let sd = Apps.D({}), req = { "Q":text.value };
+		if (btn.dataset.ID) q.I = btn.dataset.ID;
+		await sd.fetch('http://localhost:8080/__API__/ollama/request',{
+			"method": "POST",
+			"headers": { "Content-Type": "application/json" },
+			"body": JSON.stringify(req)
+		});
+		if (sd.D.I) {
+			btn.dataset.ID=sd.D.I;
+			btn.disabled = true;
+			let timer = setInterval(async () => {
+				let sd=Apps.D({});
+				await sd.fetch('http://localhost:8080/__API__/ollama/request',{
+					"method": "POST",
+					"headers": { "Content-Type": "application/json" },
+					"body": JSON.stringify({ "I":btn.dataset.ID })
+				});
+				res.innerHTML = window.marked.parse(sd.D.R);
+				if (sd.D.S!=='generating') {
+					btn.disabled = false;
+					clearInterval(timer);
+				}
+			},2000);
+		}
+	});
+</script>
+</div>
+</body></html>

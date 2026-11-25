@@ -219,19 +219,16 @@ if __name__ == "__main__":
 		}
 		args = {
 			'apipfx': "/__API__/",
-			'docs': os.path.join(env['awd'], 'docs'),
+			'docs': [env['cwd'], os.path.join(env['awd'], 'docs')],
 			'host': "0.0.0.0",
 			'port': 8080
 		}
-		with open(os.path.join(env['awd'],'etc/aioweb.json')) as fo :
-			args.update(json.loads(fo.read().format(**env)));
 		for a in sys.argv[1:]:
 			parts = a.split('=')
 			if len(parts) == 1:
 				if os.path.isfile(parts[0]):
-					with open(parts[0], "r") as cf:
-						args.update(json.load(cf))
-					continue
+					with open(parts[0], "r") as cf :
+						args.update(json.loads(cf.read().format(**env)));
 				elif os.path.isdir(parts[0]):
 					args['docs'] = parts[0]
 			else:
