@@ -46,7 +46,6 @@ class WBModule():
 
 		if sid: # update Reply
 			session_data = self.SESSIONS.get(sid)
-			print("DEBUG",session_data);
 			if not session_data:
 				return json_response({"error": "Session 不存在"}, status=404)
 			return json_response({
