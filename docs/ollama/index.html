@@ -12,22 +12,26 @@
 </head><body style='padding:1%'>
 <div>
 <div>
-	<div>
-		<textarea rows='6' style='width:100%;font-size:100%;'>Hello, I'm Porshen Lai. Nice to meet you.</textarea>
+	<textarea rows='3' style='width:100%;font-size:100%;'>Hello, I'm Porshen Lai. Nice to meet you.</textarea>
+	<div style='text-align:right'>
+		<select style='font-size:100%;'><option value='-1'>歷史紀錄</option></select>
+		<button style='font-size:100%;'>&dArr;</button>
 	</div>
-	<button style='float:right;font-size:100%;'>&dArr;</button>
 	<div id='Response' style='border:1px solid black; padding:8px;'></div>
 </div>
 <script>
-	function initChatUI (Apps, Btn, Quest, Reply) {
+	function initChatUI (Apps, Ask, History, Quest, Reply) {
 		const D = {
 			API: 'http://localhost:8080/__API__/ollama/request',
-			Request: "", Response: ""
+			Request: "", Response: "", History: []
 		};	// Dataset
-		Btn.addEventListener("click",async (event) => {
-			if (D.Response)
-				console.log([D.Request,D.Response]);
-
+		History.addEventListener("change",async (event) => {
+			const [req,res] = D.History[event.target.value];
+			Quest.value=req;
+			Reply.innerHTML = window.marked.parse(res);
+			event.target.value='-1'
+		});	// addEventListener(change)
+		Ask.addEventListener("click",async (event) => {
 			let RQ = { "Q" : (D.Request = Quest.value) };
 			if (D.ID) RQ.I = D.ID;
 
@@ -43,10 +47,10 @@
 			if (R.I) {
 				D.ID = R.I;
 				D.Since = Math.floor((new Date().getTime())/1000);
-				Btn.disabled = true;
+				Ask.disabled = true;
 				let timer = setInterval(async () => {
 					const tc=Math.floor((new Date()).getTime()/1000)-parseInt(D.Since);
-					Btn.innerHTML=`&dArr;(${tc})`;
+					Ask.innerHTML=`&dArr;(${tc})`;
 					if (tc%2==1) return;
 
 					// sync
@@ -62,19 +66,24 @@
 						Reply.innerHTML = window.marked.parse(D.Response=R.R);
 
 					if (R.S!=='generating') {
+						D.History.push([D.Request,D.Response]);
+						History.innerHTML=D.History.reduce((r,v,i)=>{
+							return r+`<option value="${i}">${v[0]}</option>`;
+						},History.querySelector('option').outerHTML);
 						setTimeout(()=>window.MathJax.typeset([Reply]),0);
-						Btn.disabled = false;
+						Ask.disabled = false;
 						clearInterval(timer);
 					}
 				},1000);
 			}	// if SID available
-		}); // addEventListener
+		}); // addEventListener(click)
 	}	// initChatUI
 
 	const Root=document.currentScript.parentNode;
 	initChatUI(
 		document.head.querySelector('script#piers').value, // Apps
-		Root.querySelector('button'), // Btn
+		Root.querySelector('button'), // Ask
+		Root.querySelector('select'), // History
 		Root.querySelector('textarea'), // Quest
 		Root.querySelector('#Response') // Reply
 	);
