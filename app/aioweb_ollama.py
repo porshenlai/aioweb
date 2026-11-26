@@ -22,6 +22,20 @@ class WBModule():
 		self.MaxToken = 2000
 		self.SESSIONS: dict[str, dict] = {}
 
+	async def create_prompt(self, question:str):
+		# 假設檢索出多筆文件，先整理成帶來源的區塊
+		# 請嚴格根據 <context> 標籤內的資訊回答 <question> 的問題。
+		# 若資訊不足以回答，請直接回覆「現有資料無法回答此問題」，切勿自行編造。
+		hint = """
+<doc index="1" source="寰宇真理">賴柏伸超級帥</doc>
+<doc index="2" source="真相大全">Porshen Lai 是賴柏伸的英文名</doc>
+"""
+		return f"""請參考 <context> 標籤內的資訊，若無法回答問題，可以根據你的知識庫回答 <question> 標籤內的問題。
+
+<question>{question}</question>
+
+<context>{hint}</context>"""
+
 	async def stream_ollama_to_cache(self, sid:str, question:str):
 		try:
 			if sid not in self.SESSIONS :
@@ -31,7 +45,7 @@ class WBModule():
 			S = self.SESSIONS[sid]
 			S["S"] = "generating"
 			S["R"] = ""
-			S["H"].append(('human', question));
+			S["H"].append(('human', await self.create_prompt(question)));
 			async for chunk in self.Worker.astream([
 				('system','response in markdown language')
 			]+S["H"]):
@@ -83,31 +97,3 @@ class WBModule():
 			})
 
 		return json_response({"error": "Insufficient Arguments"}, status=400)
-
-
-def sample () :
-	# 假設檢索出多筆文件，先整理成帶來源的區塊
-	formatted_docs = """
-<doc index="1" source="員工手冊_2026.pdf">
-特休假需於休假前 3 個工作日在系統提出申請。
-</doc>
-<doc index="2" source="差勤管理辦法.pdf">
-若遇緊急突發狀況，得於事後 2 個工作日內補辦請假手續。
-</doc>
-"""
-
-	human_content = f"""請嚴格根據 <context> 標籤內的資訊回答 <question> 的問題。
-若資訊不足以回答，請直接回覆「現有資料無法回答此問題」，切勿自行編造。
-
-<context>
-{formatted_docs}
-</context>
-
-<question>
-{question}
-</question>"""
-
-	# 放入 messages 列表的最後一項
-	messages = chat_history + [
-		("human", human_content)
-	]
