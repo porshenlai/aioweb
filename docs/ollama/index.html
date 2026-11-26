@@ -3,50 +3,81 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="/App/marked.min.js"></script>
-	<script src="/App/piers.js"></script>
+	<script src="https://porshenlai.github.io/App/js/marked.min.js"></script>
+	<script>
+		window.MathJax={tex:{inlineMath: [['$', '$'], ['\\(', '\\)']],displayMath: [['$$', '$$'], ['\\[', '\\]']]}};
+	</script>
+	<script src="https://porshenlai.github.io/App/js/tex-mml-chtml.js"></script>
+	<script id='piers' src="https://porshenlai.github.io/App/piers.js"></script>
 </head><body style='padding:1%'>
 <div>
 <div>
 	<div>
-		<textarea rows='6' style='width:100%;font-size:100%;'>妳好，很高興認識妳。</textarea>
+		<textarea rows='6' style='width:100%;font-size:100%;'>Hello, I'm Porshen Lai. Nice to meet you.</textarea>
 	</div>
 	<button style='float:right;font-size:100%;'>&dArr;</button>
-	<div id='Response' style='border:1px solid black; padding:8px;'>
-	</div>
+	<div id='Response' style='border:1px solid black; padding:8px;'></div>
 </div>
 <script>
-	const Apps=document.head.querySelector('script[src="/App/piers.js"]').value;
-	const root=document.currentScript.parentNode;
-	let btn=root.querySelector('button'),
-		text=root.querySelector('textarea'),
-		res=root.querySelector('#Response');
-	btn.addEventListener("click",async (event) => {
-		let sd = Apps.D({}), req = { "Q":text.value };
-		if (btn.dataset.ID) q.I = btn.dataset.ID;
-		await sd.fetch('http://localhost:8080/__API__/ollama/request',{
-			"method": "POST",
-			"headers": { "Content-Type": "application/json" },
-			"body": JSON.stringify(req)
-		});
-		if (sd.D.I) {
-			btn.dataset.ID=sd.D.I;
-			btn.disabled = true;
-			let timer = setInterval(async () => {
-				let sd=Apps.D({});
-				await sd.fetch('http://localhost:8080/__API__/ollama/request',{
-					"method": "POST",
-					"headers": { "Content-Type": "application/json" },
-					"body": JSON.stringify({ "I":btn.dataset.ID })
-				});
-				res.innerHTML = window.marked.parse(sd.D.R);
-				if (sd.D.S!=='generating') {
-					btn.disabled = false;
-					clearInterval(timer);
-				}
-			},2000);
-		}
-	});
+	function initChatUI (Apps, Btn, Quest, Reply) {
+		const D = {
+			API: 'http://localhost:8080/__API__/ollama/request',
+			Request: "", Response: ""
+		};	// Dataset
+		Btn.addEventListener("click",async (event) => {
+			if (D.Response)
+				console.log([D.Request,D.Response]);
+
+			let RQ = { "Q" : (D.Request = Quest.value) };
+			if (D.ID) RQ.I = D.ID;
+
+			// sync generating responses
+			let R = Apps.D({});
+			await R.fetch(D.API, {
+				"method": "POST",
+				"headers": { "Content-Type": "application/json" },
+				"body": JSON.stringify(RQ)
+			});
+			R = R.D;
+
+			if (R.I) {
+				D.ID = R.I;
+				D.Since = Math.floor((new Date().getTime())/1000);
+				Btn.disabled = true;
+				let timer = setInterval(async () => {
+					const tc=Math.floor((new Date()).getTime()/1000)-parseInt(D.Since);
+					Btn.innerHTML=`&dArr;(${tc})`;
+					if (tc%2==1) return;
+
+					// sync
+					let R=Apps.D({});
+					await R.fetch(D.API, {
+						"method": "POST",
+						"headers": { "Content-Type": "application/json" },
+						"body": JSON.stringify({ "I":D.ID })
+					});
+					R = R.D;
+
+					if (D.Response!==R.R)
+						Reply.innerHTML = window.marked.parse(D.Response=R.R);
+
+					if (R.S!=='generating') {
+						setTimeout(()=>window.MathJax.typeset([Reply]),0);
+						Btn.disabled = false;
+						clearInterval(timer);
+					}
+				},1000);
+			}	// if SID available
+		}); // addEventListener
+	}	// initChatUI
+
+	const Root=document.currentScript.parentNode;
+	initChatUI(
+		document.head.querySelector('script#piers').value, // Apps
+		Root.querySelector('button'), // Btn
+		Root.querySelector('textarea'), // Quest
+		Root.querySelector('#Response') // Reply
+	);
 </script>
 </div>
 </body></html>

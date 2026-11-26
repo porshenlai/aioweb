@@ -12,19 +12,42 @@ from langchain_ollama import ChatOllama
 
 class WBModule():
 	def __init__(self, model, base_url):
-		self.LLM = ChatOllama(model=model,base_url=base_url)
+		self.Worker = ChatOllama(
+			model = model,
+			# validate_model_on_init=True,
+			# temperature=0.8,
+			# num_predict=256,
+			base_url = base_url
+		)
+		self.MaxToken = 2000
 		self.SESSIONS: dict[str, dict] = {}
 
-	async def stream_ollama_to_cache(self, sid: str, question: str):
+	async def stream_ollama_to_cache(self, sid:str, question:str):
 		try:
-			async for chunk in self.LLM.astream(question):
+			if sid not in self.SESSIONS :
+				self.SESSIONS[sid] = {
+					"H":[], "R": "", "S": "initializing..."
+				}
+			S = self.SESSIONS[sid]
+			S["S"] = "generating"
+			S["R"] = ""
+			S["H"].append(('human', question));
+			async for chunk in self.Worker.astream([
+				('system','response in markdown language')
+			]+S["H"]):
 				if chunk.content:
-					self.SESSIONS[sid]["R"] += str(chunk.content)
-				count+=1
-			self.SESSIONS[sid]["S"] = "done"
+					S["R"] += str(chunk.content)
+				if chunk.response_metadata:
+					M=chunk.response_metadata;
+					if (M["prompt_eval_count"]+M["eval_count"]) > self.MaxToken :
+						S["H"] = S["H"][2:]
+						print(S["H"])
+			S["S"] = "done"
+			if S["R"] :
+				S["H"].append(('assistant', S["R"]))
 		except Exception as e:
-			self.SESSIONS[sid]["R"] += f"\n[系統錯誤: {str(e)}]"
-			self.SESSIONS[sid]["S"] = "error"
+			S["R"] += f"\n[系統錯誤: {str(e)}]"
+			S["S"] = "error"
 
 	async def postapi_request(self, request: Request) -> Response:
 		"""
@@ -35,18 +58,22 @@ class WBModule():
 			data = await request.json()
 		except Exception:
 			return json_response({"error": "無效的 JSON 格式"}, status=400)
-		sid = data.get("I")
-		qz = data.get("Q")
+		sid = data.get("I","").strip()
+		qz = data.get("Q","").strip()
 
 		if qz: # new Question
+			# no sid => create new chat thread or continue chat
 			new_sid = sid or str(uuid4())
-			self.SESSIONS[new_sid] = {"R": "", "S": "generating"}
 			create_task(self.stream_ollama_to_cache(new_sid, qz))
-			return json_response({"I": new_sid, "R": "", "S": "generating"})
+			return json_response({
+				"I": new_sid,
+				"R": "thinking...",
+				"S": "generating"
+			})
 
 		if sid: # update Reply
+			# no qz but sid => get current response
 			session_data = self.SESSIONS.get(sid)
-			print("DEBUG",session_data);
 			if not session_data:
 				return json_response({"error": "Session 不存在"}, status=404)
 			return json_response({
@@ -57,3 +84,30 @@ class WBModule():
 
 		return json_response({"error": "Insufficient Arguments"}, status=400)
 
+
+def sample () :
+	# 假設檢索出多筆文件，先整理成帶來源的區塊
+	formatted_docs = """
+<doc index="1" source="員工手冊_2026.pdf">
+特休假需於休假前 3 個工作日在系統提出申請。
+</doc>
+<doc index="2" source="差勤管理辦法.pdf">
+若遇緊急突發狀況，得於事後 2 個工作日內補辦請假手續。
+</doc>
+"""
+
+	human_content = f"""請嚴格根據 <context> 標籤內的資訊回答 <question> 的問題。
+若資訊不足以回答，請直接回覆「現有資料無法回答此問題」，切勿自行編造。
+
+<context>
+{formatted_docs}
+</context>
+
+<question>
+{question}
+</question>"""
+
+	# 放入 messages 列表的最後一項
+	messages = chat_history + [
+		("human", human_content)
+	]

@@ -1,5 +1,4 @@
-import sys
-import subprocess
+import sys, subprocess, site
 import urllib.request
 from importlib.util import find_spec
 
@@ -16,3 +15,4 @@ def ensure_modules (*args) :
 	for package in args :
 		if find_spec(package) is None :
 			subprocess.run([sys.executable, "-m", "pip", "install", package])
+			site.main()

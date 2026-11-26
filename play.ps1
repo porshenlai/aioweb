@@ -5,7 +5,6 @@ $ErrorActionPreference = "Stop"
 $ROOT = $PSScriptRoot
 $PY = Join-Path $ROOT "python\python.exe"
 $URL = "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-amd64.zip"
-$SRC = Join-Path $ROOT "app\aioweb.py"
 
 if (-not (Test-Path -Path $PY -PathType Leaf)) {
 	if (-not (Test-Path -Path python.zip -PathType Leaf)) {
@@ -16,4 +15,5 @@ if (-not (Test-Path -Path $PY -PathType Leaf)) {
 	Add-Content -Path $PTH -Value "import site"
 }
 
-$PY $SRC
+$PYS = Join-Path $ROOT "app\aioweb.py"
+& $PY $PYS $args
