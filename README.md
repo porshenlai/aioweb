@@ -13,7 +13,7 @@
 	- &gt; play.ps1
 
 * (FIREWALL)
-	- # Add firewall rule
+	- (Add firewall rule)
 	- &gt; New-NetFirewallRule -DisplayName "AIO Web Server" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Allow
-	- # Delete firewall rule
+	- (Delete firewall rule)
 	- &gt; Remove-NetFirewallRule -DisplayName "AIO Web Server"
