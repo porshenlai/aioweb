@@ -9,6 +9,7 @@ from ModuleTools import ensure_modules
 ensure_modules('aiohttp','langchain_ollama')
 from aiohttp.web import Request, Response, json_response
 from langchain_ollama import ChatOllama
+from langchain_core.messages import AIMessage, HumanMessage
 
 class WBModule():
 	def __init__(self, model, base_url):
@@ -22,23 +23,29 @@ class WBModule():
 		self.MaxToken = 2000
 		self.SESSIONS: dict[str, dict] = {}
 
-	async def create_ref(self, question:str):
-		return """
-<doc index="1" source="寰宇真理">賴柏伸超級帥</doc>
-<doc index="2" source="真相大全">Porshen Lai 是賴柏伸的英文名</doc>
-"""
+	async def create_ref(self, question:str) -> str:
+		return '\n'.join([
+			'<doc index="1" source="寰宇真理">賴柏伸超級帥</doc>',
+			'<doc index="2" source="真相大全">Porshen Lai 是賴柏伸的英文名</doc>'
+		])
 
-	async def create_prompt(self, question:str):
+	async def createHumanMessage(self, questions:str) -> str:
 		# 假設檢索出多筆文件，先整理成帶來源的區塊
+		if not isinstance(questions,list) :
+			questions = [questions]
 		# 請嚴格根據 <context> 標籤內的資訊回答 <question> 的問題。
 		# 若資訊不足以回答，請直接回覆「現有資料無法回答此問題」，切勿自行編造。
-		return f"""請參考 <context> 標籤內的資訊，若無法回答問題，可以根據你的知識庫回答 <question> 標籤內的問題。
+		msg=[{'type':'text','text':"請參考 <context> 標籤內的資訊，若無法回答問題，可以根據你的知識庫回答 <question> 標籤內的問題。"}];
+		for q in questions :
+			if q.startswith('data:') :
+				# data:image/jpeg;base64,{image_b64}
+				msg.append({"type":"image_url", "image_url":q})
+			else :
+				msg.append({'type':'text','text':f"<question>{q}</question>"})
+				msg.append({'type':'text','text':f"<context>{await self.create_ref(q)}</context>"})
+		return HumanMessage(content=msg)
 
-<question>{question}</question>
-
-<context>{await self.create_ref(question)}</context>"""
-
-	async def stream_ollama_to_cache(self, sid:str, question:str):
+	async def stream_ollama_to_cache(self, sid:str, questions:str):
 		try:
 			if sid not in self.SESSIONS :
 				self.SESSIONS[sid] = {
@@ -47,7 +54,7 @@ class WBModule():
 			S = self.SESSIONS[sid]
 			S["S"] = "generating"
 			S["R"] = ""
-			S["H"].append(('human', await self.create_prompt(question)));
+			S["H"].append(await self.createHumanMessage(questions))
 			async for chunk in self.Worker.astream([
 				('system','response in markdown language')
 			]+S["H"]):
@@ -60,7 +67,7 @@ class WBModule():
 						print(S["H"])
 			S["S"] = "done"
 			if S["R"] :
-				S["H"].append(('assistant', S["R"]))
+				S["H"].append(AIMessage(content=[{'type':'text','text':S["R"]}]))
 		except Exception as e:
 			S["R"] += f"\n[系統錯誤: {str(e)}]"
 			S["S"] = "error"
