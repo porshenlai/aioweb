@@ -11,8 +11,30 @@ from aiohttp.web import Request, Response, json_response
 from langchain_ollama import ChatOllama
 from langchain_core.messages import AIMessage, HumanMessage
 
-class WBModule():
-	def __init__(self, model, base_url):
+class RAGDB () :
+	def __init__(self, model:str, db_folder:str, store=None, chunks=None) :
+		self.Folder = db_folder # "mods/chromadb"
+		self.Embeddings = OllamaEmbeddings(model=model) # "bge-m3" or "nomic-embed-text-v2-moe" or "nomic-embed-text"
+		while True :
+			if store : break
+			if chunks :
+				store = Chroma.from_documents(
+					documents = chunks,
+					embedding = self.Embeddings,
+					persist_directory = self.Folder
+				)
+				break
+			store = Chroma(
+				persist_directory = self.Folder,
+				embedding_function = self.Embeddings
+			)
+
+	async def search (query, k=1) :
+		# 進行檢索
+		return self.Store.similarity_search(query, k=1)
+
+class WBModule ():
+	def __init__(self, model:str, base_url:str):
 		self.Worker = ChatOllama(
 			model = model,
 			# validate_model_on_init=True,
@@ -106,3 +128,12 @@ class WBModule():
 			})
 
 		return json_response({"error": "Insufficient Arguments"}, status=400)
+
+if __name__ == '__main__' :
+	print("[Utility]")
+	# 將文檔切分成較小的區塊 (Chunk)
+	# text_splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=20)
+	# chunks = text_splitter.split_documents(docs)
+	# 建立 Chroma 向量資料庫並儲存文檔向量
+	# rdb = RAGDB("bge-m3", "mods/ragdb", chunks)
+	# rdb.search('question', k=1)
