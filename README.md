@@ -17,3 +17,8 @@
 	- &gt; New-NetFirewallRule -DisplayName "AIO Web Server" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Allow
 	- (Delete firewall rule)
 	- &gt; Remove-NetFirewallRule -DisplayName "AIO Web Server"
+
+## Configuration
+* Location: etc/*.json
+* Sample: play.sh etc/ollama.json
+* Sample: play.ps1 etc/ollama.json
