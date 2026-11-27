@@ -22,19 +22,21 @@ class WBModule():
 		self.MaxToken = 2000
 		self.SESSIONS: dict[str, dict] = {}
 
+	async def create_ref(self, question:str):
+		return """
+<doc index="1" source="寰宇真理">賴柏伸超級帥</doc>
+<doc index="2" source="真相大全">Porshen Lai 是賴柏伸的英文名</doc>
+"""
+
 	async def create_prompt(self, question:str):
 		# 假設檢索出多筆文件，先整理成帶來源的區塊
 		# 請嚴格根據 <context> 標籤內的資訊回答 <question> 的問題。
 		# 若資訊不足以回答，請直接回覆「現有資料無法回答此問題」，切勿自行編造。
-		hint = """
-<doc index="1" source="寰宇真理">賴柏伸超級帥</doc>
-<doc index="2" source="真相大全">Porshen Lai 是賴柏伸的英文名</doc>
-"""
 		return f"""請參考 <context> 標籤內的資訊，若無法回答問題，可以根據你的知識庫回答 <question> 標籤內的問題。
 
 <question>{question}</question>
 
-<context>{hint}</context>"""
+<context>{await self.create_ref(question)}</context>"""
 
 	async def stream_ollama_to_cache(self, sid:str, question:str):
 		try:
